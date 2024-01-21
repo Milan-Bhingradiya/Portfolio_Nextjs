@@ -1,4 +1,19 @@
 import React from "react";
+import Image from "next/image";
+import bgImage from "../../public/bg.png";
+import cpuImage from "../../public/cpu.png";
+import discordImage from "../../public/discord.png";
+import dsaImage from "../../public/dsa.png";
+import flutterImage from "../../public/flutter.png";
+import githubImage from "../../public/github.png";
+import instaImage from "../../public/insta.png";
+import linkedImage from "../../public/linkedin.png";
+import lockImage from "../../public/lock.png";
+import meImage from "../../public/me.png";
+import menuImage from "../../public/menu.png";
+import postmanImage from "../../public/postman.png";
+import reactImage from "../../public/react.png";
+
 // import "@/app/x.scss";
 
 export default function home() {
@@ -13,9 +28,12 @@ export default function home() {
           </div>
         </div>
 
-
         <div className="text-white m-6">
-          <img src="./menu.png" className="h-[20px] w-[30px] "></img>
+          <Image
+            className="h-[20px] w-[30px] object-contain "
+            src={menuImage}
+            alt="menuimage"
+          ></Image>
         </div>
       </div>
       {/* ------------------------------------------------------------------------------------ */}
@@ -30,13 +48,15 @@ export default function home() {
           <div className="   flex flex-col justify-center">
             <div className="sm:h-[20px]"></div>
             <div className="font font-semibold  leading-10 text-[20px]  sm:text-sm md:text-md lg:text-lg xl:text-3xl">
-              HELLO I'M
+              {/* HELLO I &apos; M
+              HELLO I &lsquo; M */}
+              HELLO I &rsquo; M
             </div>
             <div className="h-[10px]"></div>
-            <p className="font-extrabold leading-none text-[45px]  text-[25px] sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl">
+            <p className="font-extrabold leading-none text-[45px]  sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl">
               Milan
             </p>
-            <p className=" leading-none font-extrabold text-[45px]  text-[25px] sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl">
+            <p className=" leading-none font-extrabold text-[55px] sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl">
               Bhingradiya
             </p>
 
@@ -46,33 +66,34 @@ export default function home() {
 
             <div className="h-[10px]"></div>
 
-            <div className="  hover:scale-95 h-[30px] w-[90px]  sm:h-[25px] sm:w-[80px]  md:h-[33px] sm:w-[120px] sm:h-[35px] lg:h-[38px] lg:w-[140px] xl:h-[40px] w-[150px]  mt-2 sm:mt-4 rounded-md   bg-primary2 flex flex-row justify-center items-center ">
+            <div className="  hover:scale-95 h-[30px] w-[90px]    md:h-[33px] sm:w-[120px] sm:h-[35px] lg:h-[38px] lg:w-[140px] xl:h-[40px] xl:w-[150px]  mt-2 sm:mt-4 rounded-md   bg-primary2 flex flex-row justify-center items-center ">
               <p className="text-[10px]  sm:text-sm md:text-md lg:text-lg xl:text-xl">
                 {" "}
                 Explore More
               </p>
             </div>
-            <div className=" flex flex-row mt-2 sm:mt-4 ">
-              <img
-                className="hover:scale-110 h-[17px] sm:h-[20px] md:h-[22px] lg:h-[27px] xl:h-[30px] m-2"
-                src="./linkedin.png"
+            <div className=" flex flex-row  mt-2 sm:mt-4 ">
+              <Image
+                className=" object-contain hover:scale-110 h-[17px] sm:h-[20px] md:h-[22px] lg:h-[27px] xl:h-[30px] m-2"
+                src={linkedImage}
                 alt="LinkedIn"
-              ></img>
-              <img
-                className="hover:scale-110  h-[17px] sm:h-[20px] md:h-[22px] lg:h-[27px] xl:h-[30px] m-2"
-                src="./insta.png"
+              ></Image>
+
+              <Image
+                className=" object-contain hover:scale-110  h-[17px] sm:h-[20px] md:h-[22px] lg:h-[27px] xl:h-[30px] m-2"
+                src={instaImage}
                 alt="Instagram"
-              ></img>
-              <img
-                className="hover:scale-110  h-[17px] sm:h-[20px] md:h-[22px] lg:h-[27px] xl:h-[30px] m-2"
-                src="./github.png"
+              ></Image>
+              <Image
+                className=" object-contain hover:scale-110  h-[17px] sm:h-[20px] md:h-[22px] lg:h-[27px] xl:h-[30px] m-2"
+                src={githubImage}
                 alt="GitHub"
-              ></img>
-              <img
-                className="hover:scale-110  h-[17px] sm:h-[20px] md:h-[22px] lg:h-[27px] xl:h-[30px] m-2"
-                src="./discord.png"
+              ></Image>
+              <Image
+                className=" object-contain hover:scale-110  h-[17px] sm:h-[20px] md:h-[22px] lg:h-[27px] xl:h-[30px] m-2"
+                src={discordImage}
                 alt="Discord"
-              ></img>
+              ></Image>
             </div>
           </div>
 
@@ -80,11 +101,12 @@ export default function home() {
 
           <div className="xs:w-32  "> </div>
           {/* 3*/}
-          <div className="  hidden xs:block  flex flex-row justify-center h-[200px] w-[500px] sm:h-[200px]  md:h-[300px] md:h-[350px] lg:h-[400px] xl:h-[430px]">
-            <img
-              className="  h-[200px] sm:h-[200px]  md:h-[300px] md:h-[350px] lg:h-[400px] xl:h-[430px]"
-              src="./me.png"
-            ></img>
+          <div className="  hidden xs:block   flex-row justify-center h-[200px] w-[500px] sm:h-[200px]  md:h-[350px] lg:h-[400px] xl:h-[430px]">
+            <Image
+              className=" object-contain h-[200px] sm:h-[200px]  md:h-[350px] lg:h-[400px] xl:h-[430px] o"
+              src={meImage}
+              alt="my img"
+            ></Image>
           </div>
         </div>
       </div>
@@ -92,7 +114,7 @@ export default function home() {
 
       {/* --------START------section 2---------------------------- */}
       <div className="sm:mt-20 mb-5 flex flex-row justify-center">
-        <div className="text-4xl text-white font-bold text-lg sm:text-xl md:2xl lg:text-3xl xl:text-4xl">
+        <div className="text-4xl text-white font-bold  sm:text-xl md:2xl lg:text-3xl xl:text-4xl">
           WHO AM i ?
         </div>
       </div>
@@ -100,12 +122,13 @@ export default function home() {
       <div className="flex flex-row justify-center items-center m-2">
         {/* //flex justify-center */}
         <div className=" w-[100%] sm:w-[70%] ">
-          {/* img below */}
+          {/* Image below */}
           <div className="bg-primary2 float-left md:mr-10 bordr  flex flex-row justify-center items-center  h-[180px] w-[170px] m-2 xs:h-[320px] xs:w-[300px] sm:h-[360px] sm:w-[300px] md:h-[380px] md:w-[320px] lg:h-[390px]   lg:w-[350px]  xl:h-[400px]  xl:w-[400px] ">
-            <img
-              className=" h-full p-0 float-left xs:p-2 sm:p-3 md: p-4 lg:p-5 xl:p-6"
-              src="./me.png"
-            ></img>
+            <Image
+              className="object-contain h-full p-0 float-left xs:p-2 sm:p-3 md:p-4 lg:p-5 xl:p-6"
+              src={meImage}
+              alt="myimage"
+            ></Image>
           </div>
 
           <div className="">
@@ -122,7 +145,7 @@ export default function home() {
               <br></br>
               <br></br>I started this learning journey eager to know more,driven
               by a strong curiosity about the endless possibilities of AI and
-              ML. During my studies, I've gotten better at the latest
+              ML. During my studies, I&aposve gotten better at the latest
               technologies, dived into tricky algorithms, and untangled the
               secrets of data science.
               <div className="h-[10px]"></div>
@@ -137,7 +160,7 @@ export default function home() {
 
       {/* --------start------section 3---------------------------- */}
 
-      <div className="  text-3xl font-bold text-white xs:ml-24 sm:ml-[120px] mt-20  ml-11 mr-2  xs:ml-4 xs:mr-4 sm:ml-20 sm:mr-20 ">
+      <div className="  text-3xl font-bold text-white xs:ml-24 sm:ml-[120px] mt-20  ml-11 mr-2  xs:mr-4  sm:mr-20 ">
         My services
       </div>
 
@@ -145,21 +168,33 @@ export default function home() {
         {/* Box1 */}
         <div className="h-[300px] w-[300px] m-2 xs:m-4  sm:m-10 bg-primary2 hover:rotate-90 transition-transform duration-1000 flex flex-col  items-center">
           <div className="flex flex-row justify-center items-center h-[80%]">
-            <img src="./react.png" className="h-[100px]"></img>
+            <Image
+              src={reactImage}
+              alt="reactimg"
+              className=" object-contain h-[100px]"
+            ></Image>
           </div>
           <p className="text-2xl">Web Devlopment</p>
         </div>
         {/* Box2 */}
         <div className="h-[300px] w-[300px]  m-2 xs:m-4  sm:m-10 bg-primary2 flex flex-col  items-center">
           <div className="flex flex-row justify-center items-center h-[80%]">
-            <img src="./flutter.png" className="h-[100px]"></img>
+            <Image
+              src={flutterImage}
+              alt="flutter img"
+              className=" object-contain h-[100px]"
+            ></Image>
           </div>
           <p className="text-2xl">App Devlopment</p>
         </div>
         {/* Box3 */}
         <div className="h-[300px] w-[300px]   m-2 xs:m-4  sm:m-10 bg-primary2 flex flex-col  items-center">
           <div className="flex flex-row justify-center items-center h-[80%]">
-            <img src="./postman.png" className="h-[100px]"></img>
+            <Image
+              src={postmanImage}
+              alt="postmanimg"
+              className=" object-contain h-[100px]"
+            ></Image>
           </div>
           <p className="text-2xl">Backend Devlopment</p>
         </div>
@@ -169,7 +204,7 @@ export default function home() {
 
       {/* --------start------section 4---------------------------- */}
 
-      <div className="  text-3xl font-bold text-white xs:ml-24 sm:ml-[120px] mt-20  ml-11 mr-2  xs:ml-4 xs:mr-4 sm:ml-20 sm:mr-20 ">
+      <div className="  text-3xl font-bold text-white xs:ml-24 sm:ml-[120px] mt-20  ml-11 mr-2   xs:mr-4  sm:mr-20 ">
         Learning
       </div>
 
@@ -177,21 +212,21 @@ export default function home() {
         {/* Box1 */}
         <div className="h-[300px] w-[300px] m-2 xs:m-4  sm:m-10 bg-primary2 flex flex-col justify-center items-center ">
           <div className="flex flex-row justify-center items-center h-[80%]">
-            <img src="./cpu.png" className="h-[250px] "></img>
+            <Image src={cpuImage} alt="cpuimg" className="h-[250px] "></Image>
           </div>
-          <p className="text-2xl">Machine learning</p>
+          <p className=" object-contain text-2xl">Machine learning</p>
         </div>
         {/* Box2 */}
         <div className="h-[300px] w-[300px] m-2 xs:m-4  sm:m-10 bg-primary2 flex flex-col justify-center items-center ">
           <div className="flex flex-row justify-center items-center h-[80%]">
-            <img src="./dsa.png" className="h-[200px]"></img>
+            <Image src={dsaImage} alt="dsaimg" className=" object-contain h-[200px]"></Image>
           </div>
           <p className="text-2xl ">DSA </p>
         </div>
         {/* Box3 */}
         <div className="h-[300px] w-[300px]  m-2 xs:m-4  sm:m-10 bg-primary2 flex flex-col justify-center items-center ">
           <div className="flex flex-row justify-center items-center h-[80%]">
-            <img src="./lock.png" className="h-[250px] "></img>
+            <Image src={lockImage} alt="lockimg" className=" object-contain h-[250px] "></Image>
           </div>
           <p className="text-2xl ">College Subjects</p>
         </div>
