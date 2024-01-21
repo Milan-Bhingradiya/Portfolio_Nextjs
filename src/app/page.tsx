@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import bgImage from "../../public/bg.png";
-import cpuImage from "../../public/cpu.png";
+import cpuImage from "../../public/cpuimg.png";
 
 import discordImage from "../../public/discord.png";
 import dsaImage from "../../public/dsa.png";
