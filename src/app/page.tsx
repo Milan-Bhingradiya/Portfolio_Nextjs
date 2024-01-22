@@ -292,12 +292,15 @@ export default function Home() {
       {/* menubar */}
       <div
         className={` h-[100vh] w-${
+          isWide ? "[150px]" : "0"
+        }
+         sm:w-${
           isWide ? "[300px]" : "0"
         }  transition-all duration-700 ease-out overflow-hidden  text-2xl text-white flex flex-col justify-center items-center  absolute top-0 right-0 `}
       >
         <div className="m-4">Home</div>
-        <Link href={"/projects"}></Link>
-        <div className="m-4">Projects</div>
+        <Link href={"/projects"}> <div className="m-4">Projects</div></Link>
+      
         <div className="m-4">ABout</div>
         <div className="m-4">Gallry</div>
       </div>
