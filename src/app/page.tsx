@@ -290,10 +290,11 @@ export default function Home() {
       {/* HOme page--End */}
 
       {/* menubar */}
+      {console.log(isWide)}
       <div
-        className={` h-[100vh] w-${isWide ? "[150px]" : "0"}
-         sm:w-${
-           isWide ? "[300px]" : "0"
+        className={` h-[100vh] ${isWide ?"w-[150px]":"w-[0px]"}
+         sm:${
+           isWide ?"w-[300px]":"w-[0px]"
          }  transition-all duration-700 ease-out  overflow-hidden  text-2xl text-white flex flex-col justify-center items-center  absolute top-0 right-0 `}
       >
         <div className="m-4">Home</div>
