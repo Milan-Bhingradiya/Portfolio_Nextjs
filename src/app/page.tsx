@@ -25,7 +25,7 @@ import Link from "next/link";
 
 export default function Home() {
   const [isWide, setIsWide] = useState(false);
-  let x = () => {
+  let x = ():void => {
     let targetElement: any = document.getElementById("homepagediv");
     targetElement.classList.toggle("open_homepagediv");
     // Toggle the second class
@@ -48,7 +48,8 @@ export default function Home() {
           <div
             onClick={() => {
               x();
-              setIsWide(!isWide);              
+              setIsWide(!isWide); 
+               
             }}
             className="text-white m-6"
           >
@@ -290,7 +291,6 @@ export default function Home() {
       {/* HOme page--End */}
 
       {/* menubar */}
-      {console.log(isWide)}
       <div
         className={` h-[100vh] ${isWide ?"w-[150px]":"w-[0px]"}
          sm:${
