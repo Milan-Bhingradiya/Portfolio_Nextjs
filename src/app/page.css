@@ -1,26 +1,48 @@
 .maindiv {
     transition: all 1s linear;
     margin-right: 0px;
-    perspective: 1500px;    
+    perspective: 1100px;
     background-color: #2b272c;
 }
 
 /* open menu */
 .open_homepagediv {
-    transform: rotateY(25deg) translateY(-350px) translateZ(-500px);
+    transform: rotateY(30deg) translateX(140px) translateZ(-900px);
     transition: transform 0.5s linear;
+}
+
+.blueborder {
+    /* border stuff */
+    box-sizing: content-box;
+    border: 20px solid transparent;
+    border-color: blue;
+    box-shadow: 0px 0 100px 0 rgba(130, 75, 186, 0.5);
 }
 
 /* close menu animation */
 .close_homepagediv {
+    box-shadow: 0 40px 80px rgba(255, 255, 255, 0.1);
     transform: rotateY(0deg) translateY(0px) translateZ(0px);
     transition: transform 0.5s linear;
+
 }
 
 @media only screen and (max-width: 568px) {
-    .open_homepagediv {
-        transform: rotateY(12deg) translateY(-800px) translateZ(-650px) translateX(50px);
-        transition: transform 0.5s linear;
+    .maindiv {
+        perspective: 1000px;
+    }
 
+    .blueborder {
+        /* border stuff */
+        box-sizing: content-box;
+        border: 15px solid transparent;
+        border-color: blue;
+        box-shadow: 0px 0 100px 0 rgba(130, 75, 186, 0.5);
+    }
+
+    .open_homepagediv {
+        width: 100%;
+        transform: rotateY(20deg) translateZ(-1000px) translateX(200px);
+        transition: transform 0.5s ease-in-out;
     }
 }

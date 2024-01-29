@@ -25,17 +25,37 @@ import Link from "next/link";
 
 export default function Home() {
   const [isWide, setIsWide] = useState(false);
-  let x = ():void => {
+  
+  let menuclick = (wide: boolean): void => {
     let targetElement: any = document.getElementById("homepagediv");
-    targetElement.classList.toggle("open_homepagediv");
-    // Toggle the second class
-    targetElement.classList.toggle("close_homepagediv");
+    // after close menu hight shoulf be max so i change here... inline css not possible because after some 0.5 sec we have to max hight and in inlie css instant hight is changing...
+    if (wide) {
+      targetElement.classList.remove("h-full");
+      targetElement.classList.add("h-[100vh]");
+      targetElement.classList.add("overflow-hidden");
+      targetElement.classList.remove("close_homepagediv");
+      targetElement.classList.add("open_homepagediv");
+      targetElement.classList.add("blueborder");
+    } else {
+      targetElement.classList.remove("open_homepagediv");
+      targetElement.classList.add("close_homepagediv");
+      setTimeout(() => {
+        targetElement.classList.add("h-full");
+        targetElement.classList.remove("blueborder");
+      }, 500);
+
+      //0.5s beacuse closing animaiton speed is 0.5s..
+    }
   };
 
   return (
-    <div className="maindiv">
+    <div className="maindiv flex flex-row justify-start">
       {/* HOme page--start */}
-      <div className="bg-primary close_homepagediv" id="homepagediv">
+
+      {/* below line why not use cause using this we can do like this class apply or not but i want to apply init class then onlcick i want that this class apply or not ,.. here from starting this class apply or not logic work so thats why i have to write menuclick function ... */}
+      {/*  <div className={`bg-primary ${isWide?'open_homepagediv h-[100vh] ':'close_homepagediv h-[100vh]  '} overflow-hidden  border`} id="homepagediv"> */}
+
+      <div className={`bg-primary  h-full`} id="homepagediv">
         {/* --------------------------------nav bar---------------------------------------------- */}
         <div className="flex flex-row  justify-between h-[60px] ">
           <div className=" flex flex-row p-5">
@@ -47,9 +67,9 @@ export default function Home() {
 
           <div
             onClick={() => {
-              x();
-              setIsWide(!isWide); 
-               
+              //state change late so i change before setstate..at the end state will be chnage ..
+              menuclick(!isWide);
+              setIsWide(!isWide);
             }}
             className="text-white m-6"
           >
@@ -292,9 +312,9 @@ export default function Home() {
 
       {/* menubar */}
       <div
-        className={` h-[100vh] ${isWide ?"w-[150px]":"w-[0px]"}
+        className={` h-[100vh] ${isWide ? "w-[150px]" : "w-[0px]"}
          sm:${
-           isWide ?"w-[300px]":"w-[0px]"
+           isWide ? "w-[300px]" : "w-[0px]"
          }  transition-all duration-700 ease-out  overflow-hidden  text-2xl text-white flex flex-col justify-center items-center  absolute top-0 right-0 `}
       >
         <div className="m-4">Home</div>
