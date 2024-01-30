@@ -7,7 +7,7 @@ export default function Page() {
 
     <>
     <Navbar></Navbar>
-    <div className='h-[100vh] w-[100vw] text-white m-5'>project Page </div>
+    <div className='h-[100vh] w-[100vw] text-white m-5'>Experience Page </div>
     </>
   )
 }

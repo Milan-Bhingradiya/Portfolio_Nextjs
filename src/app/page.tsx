@@ -12,74 +12,49 @@ import instaImage from "../../public/insta.png";
 import linkedImage from "../../public/linkedin.png";
 import lockImage from "../../public/lock.png";
 import meImage from "../../public/me.png";
-import menuImage from "../../public/menu.png";
 import postmanImage from "../../public/postman.png";
 import reactImage from "../../public/react.png";
 
 import "./page.css";
 
 import Link from "next/link";
+import Card from "./component/Card";
+import useApnaStore from "./store/store";
+import Navbar from "./component/Navbar";
+
 // import "@/app/x.scss";
 
 // states
 
 export default function Home() {
-  const [isWide, setIsWide] = useState(false);
-  
-  let menuclick = (wide: boolean): void => {
-    let targetElement: any = document.getElementById("homepagediv");
-    // after close menu hight shoulf be max so i change here... inline css not possible because after some 0.5 sec we have to max hight and in inlie css instant hight is changing...
-    if (wide) {
-      targetElement.classList.remove("h-full");
-      targetElement.classList.add("h-[100vh]");
-      targetElement.classList.add("overflow-hidden");
-      targetElement.classList.remove("close_homepagediv");
-      targetElement.classList.add("open_homepagediv");
-      targetElement.classList.add("blueborder");
-    } else {
-      targetElement.classList.remove("open_homepagediv");
-      targetElement.classList.add("close_homepagediv");
-      setTimeout(() => {
-        targetElement.classList.add("h-full");
-        targetElement.classList.remove("blueborder");
-      }, 500);
+  //store
+  const isWide = useApnaStore((state) => state.isSidebarWide);
+  const updatewide = useApnaStore((state) => state.updateisSidebarWide);
 
-      //0.5s beacuse closing animaiton speed is 0.5s..
-    }
-  };
+  // data
+  const myservicesArr: string[] = [
+    "Web Devlopment",
+    "App Devlopment",
+    "Backend Devlopment",
+  ];
+  const myservicesImgArr = [reactImage, flutterImage, postmanImage];
+
+  const learningImgArr = [cpuImage, dsaImage, lockImage];
+  const learningArr = ["Machine learning", "DSA", "College Subjects"];
 
   return (
-    <div className="maindiv flex flex-row justify-start">
+  <>
       {/* HOme page--start */}
-
+      {/* old not read.. */}
       {/* below line why not use cause using this we can do like this class apply or not but i want to apply init class then onlcick i want that this class apply or not ,.. here from starting this class apply or not logic work so thats why i have to write menuclick function ... */}
       {/*  <div className={`bg-primary ${isWide?'open_homepagediv h-[100vh] ':'close_homepagediv h-[100vh]  '} overflow-hidden  border`} id="homepagediv"> */}
 
-      <div className={`bg-primary  h-full`} id="homepagediv">
-        {/* --------------------------------nav bar---------------------------------------------- */}
-        <div className="flex flex-row  justify-between h-[60px] ">
-          <div className=" flex flex-row p-5">
-            <div className="text-white ml-[5px]">Milan</div>
-            <div className="text-primary ml-[5px] pl-1 pr-1 h-[25px]  bg-white">
-              OP
-            </div>
-          </div>
 
-          <div
-            onClick={() => {
-              //state change late so i change before setstate..at the end state will be chnage ..
-              menuclick(!isWide);
-              setIsWide(!isWide);
-            }}
-            className="text-white m-6"
-          >
-            <Image
-              className="h-[20px] w-[30px] object-contain "
-              src={menuImage}
-              alt="menuimage"
-            ></Image>
-          </div>
-        </div>
+      {/* HOme page--End */}
+  
+      <div className={`bg-primary  h-full`} id="">
+        {/* --------------------------------nav bar---------------------------------------------- */}
+        <Navbar></Navbar>
         {/* ------------------------------------------------------------------------------------ */}
 
         {/* --------------section 1---------------------------- */}
@@ -209,39 +184,15 @@ export default function Home() {
         </div>
 
         <div className="flex flex-row justify-center md:justify-center  flex-wrap text-white ml-2 mr-2   xs:ml-3 xs:mr:mr-3  sm:ml-20 sm:mr-20">
-          {/* Box1 */}
-          <div className="h-[300px] w-[300px] m-2 xs:m-4  sm:m-10 bg-primary2 hover:rotate-90 transition-transform duration-1000 flex flex-col  items-center">
-            <div className="flex flex-row justify-center items-center h-[80%]">
-              <Image
-                src={reactImage}
-                alt="reactimg"
-                className=" object-contain h-[100px]"
-              ></Image>
-            </div>
-            <p className="text-2xl">Web Devlopment</p>
-          </div>
-          {/* Box2 */}
-          <div className="h-[300px] w-[300px]  m-2 xs:m-4  sm:m-10 bg-primary2 flex flex-col  items-center">
-            <div className="flex flex-row justify-center items-center h-[80%]">
-              <Image
-                src={flutterImage}
-                alt="flutter img"
-                className=" object-contain h-[100px]"
-              ></Image>
-            </div>
-            <p className="text-2xl">App Devlopment</p>
-          </div>
-          {/* Box3 */}
-          <div className="h-[300px] w-[300px]   m-2 xs:m-4  sm:m-10 bg-primary2 flex flex-col  items-center">
-            <div className="flex flex-row justify-center items-center h-[80%]">
-              <Image
-                src={postmanImage}
-                alt="postmanimg"
-                className=" object-contain h-[100px]"
-              ></Image>
-            </div>
-            <p className="text-2xl">Backend Devlopment</p>
-          </div>
+          {myservicesArr.map((name, index) => {
+            return (
+              <Card
+                key={index}
+                name={name}
+                img={myservicesImgArr.at(index)}
+              ></Card>
+            );
+          })}
         </div>
 
         {/* --------END------section 3---------------------------- */}
@@ -253,35 +204,15 @@ export default function Home() {
         </div>
 
         <div className="flex flex-row justify-center md:justify-center  flex-wrap text-white  ml-2 mr-2   xs:ml-3 xs:mr:mr-3  sm:ml-20 sm:mr-20">
-          {/* Box1 */}
-          <div className="h-[300px] w-[300px] m-2 xs:m-4  sm:m-10 bg-primary2 flex flex-col justify-center items-center ">
-            <div className="flex flex-row justify-center items-center h-[80%]">
-              <Image src={cpuImage} alt="cpuimg" className="h-[250px] "></Image>
-            </div>
-            <p className=" object-contain text-2xl">Machine learning</p>
-          </div>
-          {/* Box2 */}
-          <div className="h-[300px] w-[300px] m-2 xs:m-4  sm:m-10 bg-primary2 flex flex-col justify-center items-center ">
-            <div className="flex flex-row justify-center items-center h-[80%]">
-              <Image
-                src={dsaImage}
-                alt="dsaimg"
-                className=" object-contain h-[200px]"
-              ></Image>
-            </div>
-            <p className="text-2xl ">DSA </p>
-          </div>
-          {/* Box3 */}
-          <div className="h-[300px] w-[300px]  m-2 xs:m-4  sm:m-10 bg-primary2 flex flex-col justify-center items-center ">
-            <div className="flex flex-row justify-center items-center h-[80%]">
-              <Image
-                src={lockImage}
-                alt="lockimg"
-                className=" object-contain h-[250px] "
-              ></Image>
-            </div>
-            <p className="text-2xl ">College Subjects</p>
-          </div>
+          {learningArr.map((name, index) => {
+            return (
+              <Card
+                key={index}
+                name={name}
+                img={learningImgArr.at(index)}
+              ></Card>
+            );
+          })}
         </div>
 
         {/* --------END------section 4---------------------------- */}
@@ -306,26 +237,7 @@ export default function Home() {
         </div>
 
         {/* --------END------section 5---------------------------- */}
-      </div>
-
-      {/* HOme page--End */}
-
-      {/* menubar */}
-      <div
-        className={` h-[100vh] ${isWide ? "w-[150px]" : "w-[0px]"}
-         sm:${
-           isWide ? "w-[300px]" : "w-[0px]"
-         }  transition-all duration-700 ease-out  overflow-hidden  text-2xl text-white flex flex-col justify-center items-center  absolute top-0 right-0 `}
-      >
-        <div className="m-4">Home</div>
-        <Link href={"/projects"}>
-          {" "}
-          <div className="m-4">Projects</div>
-        </Link>
-
-        <div className="m-4">ABout</div>
-        <div className="m-4">Gallry</div>
-      </div>
-    </div>
+      </div>  
+  </>
   );
 }

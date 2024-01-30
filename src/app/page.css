@@ -6,7 +6,7 @@
 }
 
 /* open menu */
-.open_homepagediv {
+.open_page_hold_div {
     transform: rotateY(30deg) translateX(140px) translateZ(-900px);
     transition: transform 0.5s linear;
 }
@@ -20,7 +20,7 @@
 }
 
 /* close menu animation */
-.close_homepagediv {
+.close_page_hold_div {
     box-shadow: 0 40px 80px rgba(255, 255, 255, 0.1);
     transform: rotateY(0deg) translateY(0px) translateZ(0px);
     transition: transform 0.5s linear;
@@ -40,7 +40,7 @@
         box-shadow: 0px 0 100px 0 rgba(130, 75, 186, 0.5);
     }
 
-    .open_homepagediv {
+    .open_page_hold_div {
         width: 100%;
         transform: rotateY(20deg) translateZ(-1000px) translateX(200px);
         transition: transform 0.5s ease-in-out;
