@@ -33,7 +33,7 @@ export default function Navbar() {
     <>
       {/*  */}
 
-      <div className="flex flex-row  justify-between h-[60px] ">
+      <div className="flex flex-row    justify-between h-[60px] w-[100%] ">
         <div className=" flex flex-row p-5">
           <div className="text-white ml-[5px]">Milan</div>
           <div className="text-primary ml-[5px] pl-1 pr-1 h-[25px]  bg-white">

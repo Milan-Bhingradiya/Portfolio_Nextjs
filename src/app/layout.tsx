@@ -25,8 +25,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="bg-primary ">
-        <div className="maindiv flex flex-row ">
-          <div id="page_hold_div">{children}</div>
+        <div className="maindiv flex flex-row  ">
+          <div id="page_hold_div" className="">{children}</div>
           <SideBar></SideBar>
         </div>
       </body>
