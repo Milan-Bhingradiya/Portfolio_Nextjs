@@ -6,6 +6,7 @@ import img from "../../../public/tech.png";
 
 import "./page.css";
 import Image from "next/image";
+import ProjectCard from "../component/ProjectCard";
 export default function Page() {
   const isWide = useApnaStore((state) => state.isSidebarWide);
   const updatewide = useApnaStore((state) => state.updateisSidebarWide);
@@ -25,109 +26,13 @@ export default function Page() {
           </div>
 
           <section>
-            <div className="flex flex-row flex-wrap ">
-              <div className="box">
-                <div className="content flex flex-col relative  text-white">
-                  <div className=" fonr relative left-[20px] top-[10px] font-serif text-2xl">
-                    Bus Trackin App
-                  </div>
+            <div className="flex flex-row flex-wrap justify-center sm:justify-start">
+              <ProjectCard></ProjectCard>
+              <ProjectCard></ProjectCard>
+              <ProjectCard></ProjectCard>
+              <ProjectCard></ProjectCard>
 
-                  <div>
-                    <Image
-                      src={img}
-                      alt="loading.."
-                      className=" h-[80px] w-[250px] m-4 mb-0"
-                    ></Image>
-                  </div>
-
-                  <div className="m-4 font-thin text-wrap ">
-                    Lorem ipsum, dolor ss aliquama liquama liqua maliquam libero
-                    quia rem liqua maliquam libero quia rem ad eum.
-                  </div>
-
-                  <div className="flex flex-row m-4 mt-0 ">
-                    <div className="m-1 text-teal-500">#Flutter</div>
-                    <div className="m-1 text-orange-600">#Firebase</div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="box">
-                <div className="content flex flex-col relative  text-white">
-                  <div className=" fonr relative left-[20px] top-[10px] font-serif text-2xl">
-                    Bus Trackin App
-                  </div>
-
-                  <div>
-                    <Image
-                      src={img}
-                      alt="loading.."
-                      className=" h-[80px] w-[250px] m-4 mb-0"
-                    ></Image>
-                  </div>
-
-                  <div className="m-4 font-thin text-wrap ">
-                    Lorem ipsum, dolor ss aliquama liquama liqua maliquam libero
-                    quia rem liqua maliquam libero quia rem ad eum.
-                  </div>
-
-                  <div className="flex flex-row m-4 mt-0 ">
-                    <div className="m-1 text-teal-500">#Flutter</div>
-                    <div className="m-1 text-orange-600">#Firebase</div>
-                  </div>
-                </div>
-              </div>
-              <div className="box">
-                <div className="content flex flex-col relative  text-white">
-                  <div className=" fonr relative left-[20px] top-[10px] font-serif text-2xl">
-                    Bus Trackin App
-                  </div>
-
-                  <div>
-                    <Image
-                      src={img}
-                      alt="loading.."
-                      className=" h-[80px] w-[250px] m-4 mb-0"
-                    ></Image>
-                  </div>
-
-                  <div className="m-4 font-thin text-wrap ">
-                    Lorem ipsum, dolor ss aliquama liquama liqua maliquam libero
-                    quia rem liqua maliquam libero quia rem ad eum.
-                  </div>
-
-                  <div className="flex flex-row m-4 mt-0 ">
-                    <div className="m-1 text-teal-500">#Flutter</div>
-                    <div className="m-1 text-orange-600">#Firebase</div>
-                  </div>
-                </div>
-              </div>
-              <div className="box">
-                <div className="content flex flex-col relative  text-white">
-                  <div className=" fonr relative left-[20px] top-[10px] font-serif text-2xl">
-                    Bus Trackin App
-                  </div>
-
-                  <div>
-                    <Image
-                      src={img}
-                      alt="loading.."
-                      className=" h-[80px] w-[250px] m-4 mb-0"
-                    ></Image>
-                  </div>
-
-                  <div className="m-4 font-thin text-wrap ">
-                    Lorem ipsum, dolor ss aliquama liquama liqua maliquam libero
-                    quia rem liqua maliquam libero quia rem ad eum.
-                  </div>
-
-                  <div className="flex flex-row m-4 mt-0 ">
-                    <div className="m-1 text-teal-500">#Flutter</div>
-                    <div className="m-1 text-orange-600">#Firebase</div>
-                  </div>
-                </div>
-              </div>
-
+             
             </div>
           </section>
           {/*  --------------------------------------- */}
@@ -136,108 +41,12 @@ export default function Page() {
             <div className=" text-white font-serif text-2xl m-5 ">
               Back End Projects
             </div>
-            <div className="flex flex-row flex-wrap ">
-            <div className="box">
-                <div className="content flex flex-col relative  text-white">
-                  <div className=" fonr relative left-[20px] top-[10px] font-serif text-2xl">
-                    Bus Trackin App
-                  </div>
-
-                  <div>
-                    <Image
-                      src={img}
-                      alt="loading.."
-                      className=" h-[80px] w-[250px] m-4 mb-0"
-                    ></Image>
-                  </div>
-
-                  <div className="m-4 font-thin text-wrap ">
-                    Lorem ipsum, dolor ss aliquama liquama liqua maliquam libero
-                    quia rem liqua maliquam libero quia rem ad eum.
-                  </div>
-
-                  <div className="flex flex-row m-4 mt-0 ">
-                    <div className="m-1 text-teal-500">#Flutter</div>
-                    <div className="m-1 text-orange-600">#Firebase</div>
-                  </div>
-                </div>
-              </div>
-              <div className="box">
-                <div className="content flex flex-col relative  text-white">
-                  <div className=" fonr relative left-[20px] top-[10px] font-serif text-2xl">
-                    Bus Trackin App
-                  </div>
-
-                  <div>
-                    <Image
-                      src={img}
-                      alt="loading.."
-                      className=" h-[80px] w-[250px] m-4 mb-0"
-                    ></Image>
-                  </div>
-
-                  <div className="m-4 font-thin text-wrap ">
-                    Lorem ipsum, dolor ss aliquama liquama liqua maliquam libero
-                    quia rem liqua maliquam libero quia rem ad eum.
-                  </div>
-
-                  <div className="flex flex-row m-4 mt-0 ">
-                    <div className="m-1 text-teal-500">#Flutter</div>
-                    <div className="m-1 text-orange-600">#Firebase</div>
-                  </div>
-                </div>
-              </div>
-              <div className="box">
-                <div className="content flex flex-col relative  text-white">
-                  <div className=" fonr relative left-[20px] top-[10px] font-serif text-2xl">
-                    Bus Trackin App
-                  </div>
-
-                  <div>
-                    <Image
-                      src={img}
-                      alt="loading.."
-                      className=" h-[80px] w-[250px] m-4 mb-0"
-                    ></Image>
-                  </div>
-
-                  <div className="m-4 font-thin text-wrap ">
-                    Lorem ipsum, dolor ss aliquama liquama liqua maliquam libero
-                    quia rem liqua maliquam libero quia rem ad eum.
-                  </div>
-
-                  <div className="flex flex-row m-4 mt-0 ">
-                    <div className="m-1 text-teal-500">#Flutter</div>
-                    <div className="m-1 text-orange-600">#Firebase</div>
-                  </div>
-                </div>
-              </div>
-              <div className="box">
-                <div className="content flex flex-col relative  text-white">
-                  <div className=" fonr relative left-[20px] top-[10px] font-serif text-2xl">
-                    Bus Trackin App
-                  </div>
-
-                  <div>
-                    <Image
-                      src={img}
-                      alt="loading.."
-                      className=" h-[80px] w-[250px] m-4 mb-0"
-                    ></Image>
-                  </div>
-
-                  <div className="m-4 font-thin text-wrap ">
-                    Lorem ipsum, dolor ss aliquama liquama liqua maliquam libero
-                    quia rem liqua maliquam libero quia rem ad eum.
-                  </div>
-
-                  <div className="flex flex-row m-4 mt-0 ">
-                    <div className="m-1 text-teal-500">#Flutter</div>
-                    <div className="m-1 text-orange-600">#Firebase</div>
-                  </div>
-                </div>
-              </div>
-
+            <div className="flex flex-row flex-wrap justify-center sm:justify-start ">
+             
+              <ProjectCard></ProjectCard>
+              <ProjectCard></ProjectCard>
+              <ProjectCard></ProjectCard>
+              <ProjectCard></ProjectCard>
             </div>
           </section>
         </div>

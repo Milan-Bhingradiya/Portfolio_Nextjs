@@ -1,3 +1,8 @@
+.blueshadow{
+    filter: drop-shadow(20px 30px 150px #4444dd);
+    /* filter: drop-shadow(0 0 0.75rem rgb(0, 0, 0)); */
+}
+
 .maindiv {
     transition: all 1s linear;
     margin-right: 0px;
@@ -10,6 +15,7 @@
     transform: rotateY(30deg) translateX(140px) translateZ(-900px);
     transition: transform 0.5s linear;
 }
+
 
 .blueborder {
     /* border stuff */

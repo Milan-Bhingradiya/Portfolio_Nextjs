@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import React from 'react'
+import "../../app/page.css"
 
 export default function Card(props:any) {
   return (

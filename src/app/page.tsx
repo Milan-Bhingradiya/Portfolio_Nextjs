@@ -120,9 +120,9 @@ export default function Home() {
 
             <div className="xs:w-32  "> </div>
             {/* 3*/}
-            <div className="  hidden xs:block   flex-row justify-center h-[200px] w-[500px] sm:h-[200px]  md:h-[350px] lg:h-[400px] xl:h-[430px]">
+            <div className="   hidden xs:block    flex-row justify-center h-[200px] w-[500px] sm:h-[200px]  md:h-[350px] lg:h-[400px] xl:h-[430px]">
               <Image
-                className=" object-contain h-[200px] sm:h-[200px]  md:h-[350px] lg:h-[400px] xl:h-[430px] o"
+                className=" blueshadow object-contain h-[200px] sm:h-[200px]  md:h-[350px] lg:h-[400px] xl:h-[430px] o"
                 src={meImage}
                 alt="my img"
               ></Image>
@@ -142,13 +142,13 @@ export default function Home() {
           {/* //flex justify-center */}
           <div className=" w-[100%] sm:w-[70%] ">
             {/* Image below */}
-            <div className="bg-primary2 float-left md:mr-10 bordr  flex flex-row justify-center items-center  h-[180px] w-[170px] m-2 xs:h-[320px] xs:w-[300px] sm:h-[360px] sm:w-[300px] md:h-[380px] md:w-[320px] lg:h-[390px]   lg:w-[350px]  xl:h-[400px]  xl:w-[400px] ">
+            {/* <div className="bg-primary2 float-left md:mr-10 bordr  flex flex-row justify-center items-center  h-[180px] w-[170px] m-2 xs:h-[320px] xs:w-[300px] sm:h-[360px] sm:w-[300px] md:h-[380px] md:w-[320px] lg:h-[390px]   lg:w-[350px]  xl:h-[400px]  xl:w-[400px] "> */}
               <Image
-                className="object-contain h-full p-0 float-left xs:p-2 sm:p-3 md:p-4 lg:p-5 xl:p-6"
+                className="object-contain h-full xx p-0 float-left xs:p-2 sm:p-3 md:p-4 lg:p-5 xl:p-6    h-[180px] w-[170px] m-2 xs:h-[320px] xs:w-[300px] sm:h-[360px] sm:w-[300px] md:h-[380px] md:w-[320px] lg:h-[390px]   lg:w-[350px]  xl:h-[400px]  xl:w-[400px]"
                 src={meImage}
                 alt="myimage"
               ></Image>
-            </div>
+            {/* </div> */}
 
             <div className="">
               {/* discription */}
