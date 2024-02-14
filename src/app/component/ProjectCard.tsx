@@ -3,9 +3,19 @@ import React from 'react'
 import img from "../../../public/tech.png"
 
 // import { Project } from "../projects/page.tsx";
+interface propsProject {
+  _id: string;
+  title: string;
+  desc: string;
+  thumbnail: string[];
+  photos: string[];
+  technology: string[];
+}
+interface ProjectCardProps {
+  project: propsProject;
+}
 
-
-export default function ProjectCard({ project }) {
+export default function ProjectCard({ project }: ProjectCardProps) {
   return (
 
     // hight of card given in .css file in project folder so dont  try here to change hight..

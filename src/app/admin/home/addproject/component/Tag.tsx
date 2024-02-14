@@ -2,7 +2,7 @@
 
 import React from 'react'
 
-export default function Tag({name}) {
+export default function Tag({name}:{name:string}) {
   return (
       <div
           style={{

@@ -3,8 +3,8 @@
 import Image from 'next/image';
 import React, { useRef, useState } from 'react'
 
-import Tag from "./component/Tag.tsx"
-import { AddProjectCall } from '@/services/htttp.tsx';
+import { AddProjectCall } from '@/services/htttp';
+import Tag from './component/Tag';
 
 interface ProjectPayload {
     // Define the properties and their types expected in the payload object
@@ -21,8 +21,8 @@ export default function Page() {
     const tagRef = useRef<HTMLInputElement>(null);
 
     // states
-    const [selectedThumbnail, setSelectedsThumbnail] = useState([]);
-    const [selectedPhotos, setSelectedPhotos] = useState([]);
+    const [selectedThumbnail, setSelectedsThumbnail] = useState<File[]>([]);
+    const [selectedPhotos, setSelectedPhotos] = useState<File[]>([]);
 
     const [Title, setTitle] = useState("");
     const [Desc, setDesc] = useState("");
@@ -54,7 +54,7 @@ export default function Page() {
             alert(res.data.data.title + " project is added successfully");
             setIsLoading(false);
         }else{
-            alert( "Failed to Upload  project TRY Again :(,  reason-> " +res.data.reason);
+            alert( "Failed to Upload  project TRY Again :(,  reason-> " +res?.data.reason);
             setIsLoading(false);
 
         }
@@ -67,7 +67,7 @@ export default function Page() {
         setSelectedsThumbnail([...selectedThumbnail, ...imageArray]);
     };
 
-    const selectMultiplePhotos = (e) => {
+    const selectMultiplePhotos = (e:any) => {
         const filestemp = e.target.files;
         // const imageArray = Array.from(filestemp);
         const imageArray = filestemp;
@@ -217,8 +217,8 @@ export default function Page() {
 
                     {/* ------------------------ */}
                     <div className='m-5'>
-                        <div value={"Submit"} onClick={handleSubmit} className='bg-black h-12 w-60 rounded-xl text-white flex flex-row justify-center items-center'>
-                            LOGIN
+                        <div  onClick={handleSubmit} className='bg-black h-12 w-60 rounded-xl text-white flex flex-row justify-center items-center'>
+                            Submit
                         </div>
                     </div>
                     {/* ------------------------ */}

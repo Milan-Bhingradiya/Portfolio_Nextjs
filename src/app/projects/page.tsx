@@ -10,24 +10,21 @@ import ProjectCard from "../component/ProjectCard";
 import myaxios from "@/utils/axios";
 import { GetProjectCall } from "@/services/htttp";
 
-
-export interface Project {
+interface propsProject {
   _id: string;
   title: string;
   desc: string;
-  thumbnail: Array<string>;
-  photos: Array<string>;
-  technolgy: Array<string>;
-
+  thumbnail: string[];
+  photos: string[];
+  technology: string[];
 }
-
 
 export default function Page() {
   const isWide = useApnaStore((state) => state.isSidebarWide);
   const updatewide = useApnaStore((state) => state.updateisSidebarWide);
 
 
-  const [projects, setprojeccts] = useState<Project[]>([]);
+  const [projects, setprojeccts] = useState<propsProject[]>([]);
   const callAPI = async () => {
     const res = await GetProjectCall();
     if (res?.data.status) {
