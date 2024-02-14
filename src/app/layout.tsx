@@ -13,15 +13,13 @@ import menuImage from "../../../public/menu.png";
 import useApnaStore from "./store/store";
 import Link from "next/link";
 import SideBar from "./component/SideBar";
+import React from "react";
 
 export default function RootLayout({
   children,
-}: {
+}:{
   children: React.ReactNode;
 }) {
-  const isWide = useApnaStore((state) => state.isSidebarWide);
-  const updatewide = useApnaStore((state) => state.updateisSidebarWide);
-
   return (
     <html lang="en">
       <body className="bg-primary ">

@@ -2,7 +2,7 @@ import React from 'react'
 
 import Link from "next/link";
 
-export default function layout({ children }) {
+export default function layout({ children }:any) {
   return (
     <div className='h-[100vh] w-[100vw] bg-[#F2F3F5] flex flex-row'>
       <div className=' w-[16%] bg-[#181D19] text-white font-medium m-2 rounded-xl'    >
