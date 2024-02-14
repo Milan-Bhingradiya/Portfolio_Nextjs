@@ -33,9 +33,9 @@ export default function SideBar() {
 
         {/* ------------------------------------------------------------------------------------------------------------- */}
 
-        <Link href={"/Experience"} onClick={() => {handleOnClick("Experience");}}>
-          <div className={`m-4 ${(currentPage=="Experience")?'font-bold text-3xl  transition-all duration-300':'hover:font-semibold'}` }>
-            Experience
+        <Link href={"/Education"} onClick={() => { handleOnClick("Education");}}>
+          <div className={`m-4 ${(currentPage =="Education")?'font-bold text-3xl  transition-all duration-300':'hover:font-semibold'}` }>
+            Education
           </div>
         </Link>
         

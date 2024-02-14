@@ -1,6 +1,5 @@
 import  myaxios  from "../utils/axios";
 
-
 export const LoginCall = async (Id: string, Password: string) => {
     const payload = {
         id: Id,
@@ -16,7 +15,7 @@ export const LoginCall = async (Id: string, Password: string) => {
     }
 }
 
-
+    
 interface ProjectPayload {
     // Define the properties and their types expected in the payload object
     // For example:
@@ -30,6 +29,9 @@ interface ProjectPayload {
 
 
 export const GetProjectCall= async () => {
+    console.log(process.env.NEXT_PUBLIC_BASE_URL);
+    console.log(process.env.NEXT_PUBLIC_BASE_URL);
+    console.log(process.env.NEXT_PUBLIC_BASE_URL);
     try {
         const res = await myaxios.get("/getprojects");
      return res
@@ -45,7 +47,7 @@ export const AddProjectCall = async (payload:ProjectPayload) => {
     console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
     formdata_payload.append("thumbnail",payload.thumbnail[0]);
 
-    payload.photos.map((photo)=>{
+    payload.photos.map((photo:any)=>{
         formdata_payload.append("photos",photo);
     })
     formdata_payload.append("title",payload.title);
