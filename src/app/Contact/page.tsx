@@ -17,73 +17,97 @@ export default function Page() {
 
     <>
       <Navbar></Navbar>
-      <div className=' w-[100vw] h-[100vh] text-white '>
-        <div className='  m-4 p-2  rounded-xl text-white  md:m-32 md:mt-5'>
+      {/* <div className=' w-[100vw] h-[100vh] text-white '> */}
+      <main className="relative py-8 bg-newprimary  w-[100vw]  ">
+        <div className="relative z-10 max-w-screen-xl mx-auto text-gray-600 sm:px-4 md:px-8 p-6">
+          <div className="max-w-lg space-y-3 px-4 sm:mx-auto sm:text-center sm:px-0">
 
-          <div className=" flex flex-row justify-center text-white text-2xl ms:text-3xl font-semibold m-5">Connect with Milan .. </div>
-
-
-          <div>
-
-
-            {/* ------------------------ */}
-            <div className='m-5'>
-              <label htmlFor="first_name" className="block mb-2 text-sm font-medium text-white ">Title</label>
-              <input type="text" id="first_name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="John" required onChange={(e) => { setPayload((payload) => { return { ...payload, "title": e.target.value } });  console.log(Payload) }  }></input>
+            <p className="text-white text-3xl font-semibold sm:text-4xl">
+              Get in touch
+            </p>
+            <p className="text-gray-300">
+              I love to hear Suggestions and query from you!
+            </p>
           </div>
-          {/* ------------------------ */}
+          <div className="mt-12 mx-auto px-4 p-8 bg-white sm:max-w-lg sm:px-8 rounded-xl">
+            <form
+              onSubmit={(e) => e.preventDefault()}
+              className="space-y-5"
+            >
+              <div>
+                <label className="font-medium">
+                  Full name
+                </label>
+                <input
+                  type="text"
+                  required
+                  className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-gray-800 shadow-sm rounded-lg"
+                />
+              </div>
+
+              <div>
+                <label className="font-medium">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  required
+                  className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-gray-800 shadow-sm rounded-lg"
+                />
+              </div>
+
+              <div>
+                <label className="font-medium">
+                  Subject
+                </label>
+                <input
+                  type="email"
+                  required
+                  className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-gray-800 shadow-sm rounded-lg"
+                />
+              </div>
+
+              {/* <div>
+                  <label className="font-medium">
+                    Phone number
+                  </label>
+                  <div className="relative mt-2">
+                    <div className="absolute inset-y-0 left-3 my-auto h-6 flex items-center border-r pr-2">
+                      <select className="text-sm bg-transparent outline-none rounded-lg h-full">
+                        <option>US</option>
+                        <option>ES</option>
+                        <option>MR</option>
+                      </select>
+                    </div>
+                    <input
+                      type="number"
+                      placeholder="+1 (555) 000-000"
+                      required
+                      className="w-full pl-[4.5rem] pr-3 py-2 appearance-none bg-transparent outline-none border focus:border-gray-800 shadow-sm rounded-lg"
+                    />
+                  </div>
+                </div> */}
 
 
 
-          <div className="m-5">
 
-            <div className="dropdown inline-block relative w-full">
-              <button onClick={() => {
-                setIsOpen(!isOpen);
-              }} className="bg-gray-300 text-gray-700 font-semibold py-2 px-4 rounded inline-flex items-center w-full">
-                <span className="mr-1 text-sm">{Category}</span>
-                <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" /> </svg>
+              <div>
+                <label className="font-medium">
+                  Message
+                </label>
+                <textarea required className="w-full mt-2 h-36 px-3 py-2 resize-none appearance-none bg-transparent outline-none border focus:border-gray-800 shadow-sm rounded-lg"></textarea>
+              </div>
+              <button
+                className="w-full px-4 py-2 text-white font-medium bg-gray-800 hover:bg-gray-700 active:bg-gray-900 rounded-lg duration-150"
+              >
+                Submit
               </button>
-              <ul className={`dropdown-menu  ${isOpen ? "" : "hidden"}  text-gray-700 pt-1`}>
-                  <li onClick={() => { setPayload((payload) => { return { ...payload, category:"Project related"}}); setCategory("Project related"); setIsOpen(false) }} className=""><a className="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" >Project related</a></li>
-                  <li onClick={() => { setPayload((payload) => { return { ...payload, category: "Refferal" } }); setCategory("Referals"); setIsOpen(false) }} className=""><a className="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" >Referals</a></li>
-                  <li onClick={() => { setPayload((payload) => { return { ...payload, category: "Personal Tips" } }); setCategory("Referals"); setIsOpen(false) }} className=""><a className="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" >Personal Tips</a></li>
-              </ul>
-            </div>
-
+            </form>
           </div>
-          {/* ------------------------ */}
-
-          <div className='m-5'>
-            <label htmlFor="first_name" className="block mb-2 text-sm font-medium text-white ">Desctiption</label>
-              <textarea id="first_name" className="bg-gray-50 border  text-gray-900 text-sm rounded-lg  w-full p-2.5  h-[200px]" placeholder="John" required onChange={(e) => { setPayload((payload) => { return { ...payload, "desc": e.target.value } }); console.log(Payload) }}></textarea>
-          </div>
-
-          {/* ------------------------ */}
-
-
-
-          {/* ------------------------ */}
-          <div className='m-5'>
-            <div className='bg-black h-12 w-full rounded-xl text-white flex flex-row justify-center items-center'>
-              Submit
-            </div>
-          </div>
-          {/* ------------------------ */}
         </div>
-
-
-
-
-        {/* 
-                 */}
-
-
-
-
-      </div>
-
-    </div >
+        {/* <div className='absolute inset-0 blur-[118px] max-w-lg h-[800px] mx-auto sm:max-w-3xl sm:h-[400px]' style={{ background: "linear-gradient(106.89deg, rgba(192, 132, 252, 0.11) 15.73%, rgba(14, 165, 233, 0.41) 15.74%, rgba(232, 121, 249, 0.26) 56.49%, rgba(79, 70, 229, 0.4) 115.91%)" }}></div> */}
+      </main>
+      {/* </div > */}
     </>
   )
 }

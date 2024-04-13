@@ -35,6 +35,7 @@ const useApnaStore = create<AppState>((set) => ({
     } else {
       targetElement.classList.remove("open_page_hold_div");
       targetElement.classList.add("close_page_hold_div");
+      
       setTimeout(() => {
         targetElement.classList.add("h-full");
         targetElement.classList.remove("blueborder");

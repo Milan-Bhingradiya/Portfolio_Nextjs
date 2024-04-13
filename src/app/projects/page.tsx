@@ -37,7 +37,7 @@ export default function Page() {
   return (
     <>
       {/*  when side meu open and page showinf in left side bending at that time if 100vw width give then it take whole screen width and nav bar menu icon go to end so even when side menu open munu icon can still need to visile so i doen here 90vw so menu icon come to left side when side menu open  */}
-      <div className={`${isWide ? "w-[90vw]" : "w-[99vw]"}  `}>
+      <div className={`${isWide ? "w-[90vw]" : "w-[99vw]"}  min-h-screen`}>
         <Navbar></Navbar>
         <div className=" h-min-[100vh]">
           <div className="flex  flex-row justify-center  text-white text-3xl font-serif ">
@@ -53,6 +53,7 @@ export default function Page() {
             <div className="flex flex-row flex-wrap justify-center sm:justify-start">
               {projects.length != 0 &&
                 projects.map((project) => {
+                  console.log(project._id)
                   return (
                     <ProjectCard
                       key={project._id}
