@@ -4,7 +4,6 @@ import Navbar from "../component/Navbar";
 import useApnaStore from "../store/store";
 import img from "../../../public/tech.png";
 
-import "./page.css";
 import Image from "next/image";
 import ProjectCard from "../component/ProjectCard";
 import myaxios from "@/utils/axios";
@@ -23,7 +22,6 @@ export default function Page() {
   const isWide = useApnaStore((state) => state.isSidebarWide);
   const updatewide = useApnaStore((state) => state.updateisSidebarWide);
 
-
   const [projects, setprojeccts] = useState<propsProject[]>([]);
   const callAPI = async () => {
     const res = await GetProjectCall();
@@ -37,9 +35,6 @@ export default function Page() {
   }, []);
 
   return (
-
-
-
     <>
       {/*  when side meu open and page showinf in left side bending at that time if 100vw width give then it take whole screen width and nav bar menu icon go to end so even when side menu open munu icon can still need to visile so i doen here 90vw so menu icon come to left side when side menu open  */}
       <div className={`${isWide ? "w-[90vw]" : "w-[99vw]"}  `}>
@@ -56,14 +51,15 @@ export default function Page() {
 
           <section>
             <div className="flex flex-row flex-wrap justify-center sm:justify-start">
-
-              {projects.length != 0 && projects.map((project) => {
-                return <ProjectCard key={project._id} project={project}></ProjectCard>
-              })}
-
-
-
-
+              {projects.length != 0 &&
+                projects.map((project) => {
+                  return (
+                    <ProjectCard
+                      key={project._id}
+                      project={project}
+                    ></ProjectCard>
+                  );
+                })}
             </div>
           </section>
           {/*  --------------------------------------- */}
@@ -73,10 +69,15 @@ export default function Page() {
               Back End Projects
             </div>
             <div className="flex flex-row flex-wrap justify-center sm:justify-start ">
-
-              {projects.length != 0 && projects.map((project) => {
-                return <ProjectCard key={project._id} project={project}></ProjectCard>
-              })}
+              {projects.length != 0 &&
+                projects.map((project) => {
+                  return (
+                    <ProjectCard
+                      key={project._id}
+                      project={project}
+                    ></ProjectCard>
+                  );
+                })}
 
               {/* <ProjectCard></ProjectCard>
               <ProjectCard></ProjectCard>

@@ -16,6 +16,8 @@ const config: Config = {
         backgroundColor: {
         'primary': '#191C2B',
         'primary2': '#2B3049',
+        'newprimary':'#14161A',
+        'newprimary2':'#60A5FA',
         'custom-blue': '#3490dc',
       },
       textColor: {

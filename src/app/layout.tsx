@@ -13,16 +13,36 @@ import menuImage from "../../../public/menu.png";
 import useApnaStore from "./store/store";
 import Link from "next/link";
 import SideBar from "./component/SideBar";
-import React from "react";
+import React, { useEffect } from "react";
 
 export default function RootLayout({
   children,
 }:{
   children: React.ReactNode;
 }) {
+
+
+  const { isSidebarWide, menuOnClick, updateisSidebarWide } = useApnaStore();
+  useEffect(() => {
+    const handleClick = (event: MouseEvent) => {
+      const target = event.target as HTMLElement;
+
+      // Check if the clicked element is a descendant of #page_hold_div or SideBar
+      if (!target.closest('#page_hold_div') && !target.closest('SideBar')) {
+        menuOnClick(!isSidebarWide);
+        updateisSidebarWide(); // Call menuOnclick function if clicked outside the specified elements
+      }
+    };
+
+    document.addEventListener('click', handleClick);
+
+    return () => {
+      document.removeEventListener('click', handleClick);
+    };
+  }, [menuOnClick, isSidebarWide]);//idk why i put this here this time idk 
   return (
     <html lang="en">
-      <body className="bg-primary ">
+      <body className="bg-newprimary ">
         <div className="maindiv flex flex-row  ">
           <div id="page_hold_div" className="">{children}</div>
           <SideBar></SideBar>

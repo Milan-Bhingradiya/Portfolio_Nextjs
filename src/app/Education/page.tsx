@@ -40,7 +40,7 @@ export default function Page() {
               mode="VERTICAL_ALTERNATING"
               slideItemDuration={5000} slideShow
               theme={{
-                primary: "#343A46",
+                primary: "#60A5FA",
                 secondary: "#38598b",
                 cardBgColor: "white",
                 cardForeColor: "violet",
