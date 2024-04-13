@@ -8,6 +8,7 @@ interface AppState {
   updateisSidebarWide: () => void;
   currentPage: string,
   updatePage: (newValue: string) => void;
+  menuOnClick:(value:boolean)=>void;
   
 
 }
