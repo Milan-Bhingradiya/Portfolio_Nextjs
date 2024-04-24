@@ -11,7 +11,7 @@ export default function layout({ children }:any) {
 
         {/*.............................  */}
 
-        <Link href="/admin/home/addproject">
+        <Link href="/admin/inside/addproject">
 
         <div className='flex flex-row justify-center items-center m-4 hover:bg-[#343A46]  '>
           {/* icon */}
@@ -30,7 +30,7 @@ export default function layout({ children }:any) {
 
 
         {/*.............................  */}
-        <Link href="/admin/home/addexperience">
+        <Link href="/admin/inside/addexperience">
 
         <div className='flex flex-row justify-center items-center m-4 hover:bg-[#343A46]  '>
           {/* icon */}
@@ -47,7 +47,7 @@ export default function layout({ children }:any) {
 
 
         {/*.........................................  */}
-        <Link href="/admin/home/addeducation">
+        <Link href="/admin/inside/addeducation">
 
         <div className='flex flex-row justify-center items-center m-4 hover:bg-[#343A46]  '>
           {/* icon */}
@@ -62,7 +62,7 @@ export default function layout({ children }:any) {
         </Link>
 
         {/*.........................................  */}
-        <Link href="/admin/home/addproject">
+        <Link href="/admin/inside/addproject">
 
      
         <div className='flex flex-row justify-center items-center m-4 hover:bg-[#343A46]  '>

@@ -23,6 +23,7 @@ export default function Page() {
   const updatewide = useApnaStore((state) => state.updateisSidebarWide);
 
   const [projects, setprojeccts] = useState<propsProject[]>([]);
+
   const callAPI = async () => {
     const res = await GetProjectCall();
     if (res?.data.status) {
@@ -45,9 +46,9 @@ export default function Page() {
           </div>
 
           {/*  --------------------------------------- */}
-          <div className=" text-white font-serif text-2xl m-5 ">
+          {/* <div className=" text-white font-serif text-2xl m-5 ">
             Front End Projects
-          </div>
+          </div> */}
 
           <section>
             <div className="flex flex-row flex-wrap justify-center sm:justify-start">
@@ -65,27 +66,7 @@ export default function Page() {
           </section>
           {/*  --------------------------------------- */}
 
-          <section>
-            <div className=" text-white font-serif text-2xl m-5 ">
-              Back End Projects
-            </div>
-            <div className="flex flex-row flex-wrap justify-center sm:justify-start ">
-              {projects.length != 0 &&
-                projects.map((project) => {
-                  return (
-                    <ProjectCard
-                      key={project._id}
-                      project={project}
-                    ></ProjectCard>
-                  );
-                })}
-
-              {/* <ProjectCard></ProjectCard>
-              <ProjectCard></ProjectCard>
-              <ProjectCard></ProjectCard>
-              <ProjectCard></ProjectCard> */}
-            </div>
-          </section>
+        
         </div>
       </div>
     </>
