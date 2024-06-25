@@ -23,16 +23,7 @@ export default function Page() {
   const isWide = useApnaStore((state) => state.isSidebarWide);
   const updatewide = useApnaStore((state) => state.updateisSidebarWide);
 
-  const [projects, setprojeccts] = useState<propsProject[]>([
-    {
-      id: "",
-      title: "",
-      desc: "",
-      thumbnail: [],
-      photos: [],
-      technology: [],
-    },
-  ]);
+  const [projects, setprojeccts] = useState<propsProject[]>([]);
 
   const callAPI = async () => {
     const res = await GetProjectCall();
