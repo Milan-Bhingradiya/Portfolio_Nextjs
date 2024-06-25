@@ -8,9 +8,10 @@ import Image from "next/image";
 import ProjectCard from "../component/ProjectCard";
 import myaxios from "@/utils/axios";
 import { GetProjectCall } from "@/services/htttp";
+import { getAllDocuments } from "@/services/fireStoreOperations";
 
 interface propsProject {
-  _id: string;
+  id: string;
   title: string;
   desc: string;
   thumbnail: string[];
@@ -22,7 +23,16 @@ export default function Page() {
   const isWide = useApnaStore((state) => state.isSidebarWide);
   const updatewide = useApnaStore((state) => state.updateisSidebarWide);
 
-  const [projects, setprojeccts] = useState<propsProject[]>([]);
+  const [projects, setprojeccts] = useState<propsProject[]>([
+    {
+      id: "",
+      title: "",
+      desc: "",
+      thumbnail: [],
+      photos: [],
+      technology: [],
+    },
+  ]);
 
   const callAPI = async () => {
     const res = await GetProjectCall();
@@ -32,7 +42,14 @@ export default function Page() {
   };
 
   useEffect(() => {
-    callAPI();
+    // callAPI();
+
+    getAllDocuments("projects").then((res) => {
+      console.log(res);
+      console.log(res);
+
+      setprojeccts(res!);
+    });
   }, []);
 
   return (
@@ -54,10 +71,9 @@ export default function Page() {
             <div className="flex flex-row flex-wrap justify-center sm:justify-start">
               {projects.length != 0 &&
                 projects.map((project) => {
-                  console.log(project._id)
                   return (
                     <ProjectCard
-                      key={project._id}
+                      key={project.id}
                       project={project}
                     ></ProjectCard>
                   );
@@ -65,8 +81,6 @@ export default function Page() {
             </div>
           </section>
           {/*  --------------------------------------- */}
-
-        
         </div>
       </div>
     </>
