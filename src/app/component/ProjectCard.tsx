@@ -20,8 +20,8 @@ interface ProjectCardProps {
 
 export default function ProjectCard({ project }: ProjectCardProps) {
   const [isHovered, setIsHovered] = useState(false);
-  const currentPath = window.location.href;
-  const newPath = `${currentPath}/moredetail`;
+  // const currentPath = window.location.href;
+  // const newPath = `${currentPath}/moredetail`;
 
   return (
     // hight of card given in .css file in project folder so dont  try here to change hight..
@@ -101,7 +101,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 
           <div className="flex flex-row justify-center">
             <Link
-              href={newPath}
+              href={"/projects/moredetail"}
               className="relative inline-flex items-center justify-center px-8 py-[10px] overflow-hidden font-mono font-medium tracking-tighter text-white bg-gray-800 rounded-lg group"
             >
               <span className="absolute w-0 h-0 transition-all duration-500 ease-out bg-green-500 rounded-full group-hover:w-56 group-hover:h-56"></span>
