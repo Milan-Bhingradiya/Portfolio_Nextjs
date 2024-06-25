@@ -17,13 +17,19 @@ export const addDocument = async (collectionName: string, data: any) => {
       ...data,
       createdAt: serverTimestamp(),
     });
-    return docRef;
+    return true;
+    // return docRef;
   } catch (error) {
     console.error("Error adding document:", error);
+    return false;
   }
 };
 
-export const editDocument = async (collectionName: string, id, updatedData) => {
+export const editDocument = async (
+  collectionName: string,
+  id: string,
+  updatedData: any
+) => {
   try {
     const docRef = doc(firestoreInstance, collectionName, id);
     await updateDoc(docRef, updatedData);
@@ -33,7 +39,7 @@ export const editDocument = async (collectionName: string, id, updatedData) => {
   }
 };
 
-export const removeDocument = async (collectionName: string, id) => {
+export const removeDocument = async (collectionName: string, id: string) => {
   try {
     const docRef = doc(firestoreInstance, collectionName, id);
     await deleteDoc(docRef);
@@ -48,7 +54,7 @@ export const getAllDocuments = async (collectionName: string) => {
     const querySnapshot = await getDocs(
       collection(firestoreInstance, collectionName)
     );
-    const documents = [];
+    const documents: any = [];
     querySnapshot.forEach((doc) => {
       documents.push({ id: doc.id, ...doc.data() });
     });
