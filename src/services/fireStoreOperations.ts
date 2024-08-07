@@ -6,6 +6,7 @@ import {
   doc,
   getDocs,
   serverTimestamp,
+  getDoc,
 } from "firebase/firestore";
 import { firestoreInstance } from "../../firebase-config";
 
@@ -62,5 +63,24 @@ export const getAllDocuments = async (collectionName: string) => {
     return documents;
   } catch (error) {
     console.error("Error fetching documents:", error);
+  }
+};
+
+
+export const getDocumentById = async (collectionName: string, documentId: string) => {
+  try {
+    const docRef = doc(firestoreInstance, collectionName, documentId);
+    const docSnap = await getDoc(docRef);
+
+    if (docSnap.exists()) {
+      // console.log("Document data:", { id: docSnap.id, ...docSnap.data() });
+      // return { id: docSnap.id ,...docSnap.data() };  parane i need to deleete because this id give warning...
+      return { ...docSnap.data() };
+    } else {
+      console.log("No such document!");
+      return null;
+    }
+  } catch (error) {
+    console.error("Error fetching document:", error);
   }
 };

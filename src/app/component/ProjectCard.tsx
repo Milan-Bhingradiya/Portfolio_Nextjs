@@ -38,7 +38,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 
         <div className="  h-[300px] overflow-hidden">
           <Image
-            src={project.thumbnail[0]}
+            src={project.thumbnail  &&project.thumbnail[0]}
             alt="loading.."
             width={300}
             height={100}
@@ -52,7 +52,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           >
             <h2 className="text-xl ml-2 font-bold  text-white ">
               {" "}
-              {project.title}
+              {project.title && project.title}
             </h2>
 
             <h3 className="text-[15px]  mt-2 ml-2 font-normal font-sans bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text">
@@ -101,7 +101,8 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 
           <div className="flex flex-row justify-center">
             <Link
-              href={"/projects/moredetail"}
+              href={"/projects/moredetail/" + project.id}
+              
               className="relative inline-flex items-center justify-center px-8 py-[10px] overflow-hidden font-mono font-medium tracking-tighter text-white bg-gray-800 rounded-lg group"
             >
               <span className="absolute w-0 h-0 transition-all duration-500 ease-out bg-green-500 rounded-full group-hover:w-56 group-hover:h-56"></span>

@@ -36,8 +36,7 @@ export default function Page() {
     // callAPI();
 
     getAllDocuments("projects").then((res) => {
-      console.log(res);
-      console.log(res);
+     
 
       setprojeccts(res!);
     });
@@ -60,7 +59,7 @@ export default function Page() {
 
           <section>
             <div className="flex flex-row flex-wrap justify-center sm:justify-start">
-              {projects.length != 0 &&
+              {projects && projects.length != 0 &&
                 projects.map((project) => {
                   return (
                     <ProjectCard
