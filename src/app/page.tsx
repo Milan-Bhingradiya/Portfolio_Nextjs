@@ -80,7 +80,7 @@ export default function Home() {
               </p>
               <br></br>
               <div className="text-[15px] leading-8 sm:text-sm md:text-md lg:text-lg xl:text-xl">
-                Web Devlapper & App devloper
+                Web Devloper & App Devloper
               </div>
 
               {/* <div className="h-[10px]"></div> */}
