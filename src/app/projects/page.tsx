@@ -13,7 +13,7 @@ import { getAllDocuments } from "@/services/fireStoreOperations";
 interface propsProject {
   id: string;
   title: string;
-  desc: string;
+  card_desc: string;
   thumbnail: string[];
   photos: string[];
   technology: string[];
@@ -36,8 +36,6 @@ export default function Page() {
     // callAPI();
 
     getAllDocuments("projects").then((res) => {
-     
-
       setprojeccts(res!);
     });
   }, []);
@@ -48,7 +46,7 @@ export default function Page() {
       <div className={`${isWide ? "w-[90vw]" : "w-[99vw]"}  min-h-screen`}>
         <Navbar></Navbar>
         <div className=" h-min-[100vh]">
-          <div className="flex  flex-row justify-center  text-white text-3xl font-serif ">
+          <div className="flex  flex-row justify-center  text-white text-3xl font-serif m-2 mb-6 ">
             My Project
           </div>
 

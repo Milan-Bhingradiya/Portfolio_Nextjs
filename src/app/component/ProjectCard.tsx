@@ -9,7 +9,7 @@ import "./Card.css";
 interface propsProject {
   id: string;
   title: string;
-  desc: string;
+  card_desc: string;
   thumbnail: string[];
   photos: string[];
   technology: string[];
@@ -96,7 +96,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
               </div>
             </div>
 
-            <div className="line-clamp-6 m-4">{project.desc}</div>
+            <div className="line-clamp-6 m-4">{project.card_desc}</div>
           </div>
 
           <div className="flex flex-row justify-center">
