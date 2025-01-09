@@ -5,15 +5,13 @@ import useApnaStore from "./store/store";
 import Navbar from "./component/Navbar";
 
 // import "@/app/x.scss";
-import OldHero from "./component/oldhero";
+// import OldHero from "./component/oldhero";
 import Newhero from "./component/Newhero";
 import Section2 from "./component/Section2";
 import Section3 from "./component/Section3";
 import Footer from "./component/Footer";
 
-
 export default function Home() {
-
   //store
   const isWide = useApnaStore((state) => state.isSidebarWide);
   const updatewide = useApnaStore((state) => state.updateisSidebarWide);

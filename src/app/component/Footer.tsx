@@ -19,7 +19,7 @@ export default function Footer() {
           <div className="flex flex-col sm:flex-row justify-between items-center 
                         text-white p-4 sm:p-6 md:p-8 gap-4 sm:gap-8">
             <p className="text-lg sm:text-xl md:text-2xl font-light text-center sm:text-left flex-1">
-              Let's Connect, Work Together or Share Your Suggestions
+              Let&apos;s Connect, Work Together or Share Your Suggestions
             </p>
             <Link href={"/Contact"}>
               <motion.div 

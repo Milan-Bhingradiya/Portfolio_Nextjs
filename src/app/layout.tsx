@@ -2,6 +2,7 @@
 import "../app/global.css";
 import Navbar from "./component/Navbar";
 import "../app/page.css";
+import { motion, AnimatePresence } from "framer-motion";
 
 // export const metadata = {
 //   title: "Next.js",
