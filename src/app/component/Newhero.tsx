@@ -14,7 +14,7 @@ export default function Newhero() {
         visible: {
             opacity: 1,
             transition: {
-                staggerChildren: 0.07
+                staggerChildren: 0.1
             }
         }
     };
@@ -22,23 +22,20 @@ export default function Newhero() {
     const letterVariants = {
         hidden: {
             opacity: 0,
-            y: 50,
-            z: -100,
-            rotateX: 180,
-            scale: 0,
+            x: -100,
+            rotate: -20,
+            filter: "blur(10px)"
         },
         visible: {
             opacity: 1,
-            y: 0,
-            z: 0,
-            rotateX: 0,
-            scale: 1,
+            x: 0,
+            rotate: 0,
+            filter: "blur(0px)",
             transition: {
                 type: "spring",
-                damping: 8,
-                mass: 0.3,
-                stiffness: 100,
-                duration: 0.8
+                damping: 12,
+                mass: 0.75,
+                stiffness: 100
             }
         }
     };
@@ -73,7 +70,7 @@ export default function Newhero() {
                             Hii, I&apos;m
                         </motion.span>
                         
-                        <div className="overflow-hidden py-2 perspective-[1000px]">
+                        <div className="overflow-hidden py-2">
                             <motion.div 
                                 className="flex justify-center"
                                 variants={containerVariants}
@@ -87,18 +84,16 @@ export default function Newhero() {
                                         className={`${dancingScript.className} text-6xl md:text-7xl xl:text-8xl font-bold 
                                             relative cursor-pointer
                                             bg-gradient-to-r from-blue-400 via-blue-600 to-blue-800 
-                                            bg-clip-text text-transparent
-                                            hover:animate-glitch`}
+                                            bg-clip-text text-transparent`}
                                         whileHover={{
-                                            scale: 1.5,
-                                            rotateY: [0, 360],
+                                            scale: 1.2,
+                                            rotate: [0, -10, 10, 0],
                                             transition: {
-                                                duration: 0.6,
-                                                ease: "backOut"
+                                                rotate: {
+                                                    repeat: Infinity,
+                                                    duration: 1
+                                                }
                                             }
-                                        }}
-                                        style={{
-                                            textShadow: "2px 2px 20px rgba(0, 100, 255, 0.2)",
                                         }}
                                     >
                                         {letter === " " ? "\u00A0" : letter}

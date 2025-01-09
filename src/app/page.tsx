@@ -20,35 +20,6 @@ export default function Home() {
 
   // data
 
-  // Add typing animation state with individual letter tracking
-  const [letters, setLetters] = useState<{ char: string; visible: boolean }[]>([]);
-  const fullText = "Milan Bhingradiya";
-  
-  useEffect(() => {
-    // Initialize letters array
-    const initialLetters = fullText.split('').map(char => ({
-      char,
-      visible: false
-    }));
-    setLetters(initialLetters);
-
-    // Animate each letter
-    let currentIndex = 0;
-    const typingInterval = setInterval(() => {
-      if (currentIndex < fullText.length) {
-        setLetters(prev => prev.map((letter, index) => ({
-          ...letter,
-          visible: index <= currentIndex
-        })));
-        currentIndex++;
-      } else {
-        clearInterval(typingInterval);
-      }
-    }, 150);
-
-    return () => clearInterval(typingInterval);
-  }, []);
-
   return (
     <>
       {/* HOme page--start */}
@@ -63,7 +34,7 @@ export default function Home() {
         <div className="flex flex-col items-center justify-center h-full w-full">
           {/* <OldHero></OldHero> */}
 
-          <Newhero letters={letters} />
+          <Newhero></Newhero>
           {/* <OldHero></OldHero> */}
 
           <Section2></Section2>
