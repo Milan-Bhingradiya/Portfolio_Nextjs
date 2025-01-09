@@ -132,9 +132,9 @@ export default function Section2() {
   }, [isVisible]);
 
   return (
-    <div className="h-[120vh] ">
+    <div className="h-[100vh] md:h-[120vh] ">
       {" "}
-      <div className="mt-48"></div>
+      <div className="mt-28 md:mt-48"></div>
       <div ref={sectionRef}>
         <motion.div
           className="sm:mt-20 mb-5 flex flex-row justify-center"
