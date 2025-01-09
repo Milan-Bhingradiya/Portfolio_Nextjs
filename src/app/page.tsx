@@ -32,7 +32,7 @@ export default function Home() {
         <div className="flex flex-col items-center justify-center h-full w-full">
           {/* <OldHero></OldHero> */}
 
-          <Newhero></Newhero>
+          {/* <Newhero></Newhero> */}
           {/* <OldHero></OldHero> */}
 
           <Section2></Section2>

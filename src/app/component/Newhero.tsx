@@ -82,75 +82,75 @@ export default function Newhero() {
     };
 
     return (
-        <div className="relative overflow-hidden">
-            <div className="p-60 pt-45">
-                <HeroSvg />
-                <motion.div className="max-w-7xl mx-auto px-4 flex flex-col gap-6 items-center justify-center">
-                    <div className="flex flex-col items-center justify-center">
-                        <motion.span 
-                            initial={{ opacity: 0, scale: 0.5 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            transition={{ duration: 0.5 }}
-                            className={`${dancingScript.className} tracking-wide text-3xl md:text-4xl text-center font-medium text-[#e4e4e4] italic`}
-                        >
-                            Hii, I&apos;m
-                        </motion.span>
-                        
-                        <div className="overflow-hidden py-2">
-                            <motion.div 
-                                className="flex justify-center"
-                                variants={nameContainerVariants}
-                                initial="hidden"
-                                animate="visible"
-                            >
-                                {nameText.map((letter, i) => (
-                                    <motion.span
-                                        key={i}
-                                        variants={nameLetterVariants}
-                                        className={`${dancingScript.className} text-6xl md:text-7xl xl:text-8xl font-bold 
+      <div className="relative border-2 border-green-500">
+        <div className="p-48 mx-100 pt-45 border-2 border-red-500">
+          <HeroSvg/>
+          <motion.div className="max-w-7xl mx-auto px-4 flex flex-col gap-6 items-center justify-center">
+            <div className="flex flex-col items-center justify-center">
+              <motion.span
+                initial={{ opacity: 0, scale: 0.5 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5 }}
+                className={`${dancingScript.className} tracking-wide text-3xl md:text-4xl text-center font-medium text-[#e4e4e4] italic`}
+              >
+                Hii, I&apos;m
+              </motion.span>
+
+              <div className="overflow-hidden py-2">
+                <motion.div
+                  className="flex justify-center"
+                  variants={nameContainerVariants}
+                  initial="hidden"
+                  animate="visible"
+                >
+                  {nameText.map((letter, i) => (
+                    <motion.span
+                      key={i}
+                      variants={nameLetterVariants}
+                      className={`${dancingScript.className} text-6xl md:text-7xl xl:text-8xl font-bold 
                                             relative cursor-pointer
                                             bg-gradient-to-r from-blue-400 via-blue-600 to-blue-800 
                                             bg-clip-text text-transparent`}
-                                        whileHover={{
-                                            scale: 1.2,
-                                            rotate: [0, -10, 10, 0],
-                                            transition: {
-                                                rotate: {
-                                                    repeat: Infinity,
-                                                    duration: 1
-                                                }
-                                            }
-                                        }}
-                                    >
-                                        {letter === " " ? "\u00A0" : letter}
-                                    </motion.span>
-                                ))}
-                            </motion.div>
-                        </div>
-                    </div>
-                    
-                    <motion.div 
-                        className="flex justify-center flex-wrap"
-                        variants={descriptionContainerVariants}
-                        initial="hidden"
-                        animate="visible"
+                      whileHover={{
+                        scale: 1.2,
+                        rotate: [0, -10, 10, 0],
+                        transition: {
+                          rotate: {
+                            repeat: Infinity,
+                            duration: 1,
+                          },
+                        },
+                      }}
                     >
-                        {descriptionText.map((letter, i) => (
-                            <motion.span
-                                key={i}
-                                custom={i}
-                                variants={descriptionLetterVariants}
-                                className={`${dancingScript.className} text-xl md:text-2xl text-[#c9c9c9]`}
-                                style={{
-                                    transformStyle: "preserve-3d"
-                                }}
-                            >
-                                {letter === " " ? "\u00A0" : letter}
-                            </motion.span>
-                        ))}
-                    </motion.div>
+                      {letter === " " ? "\u00A0" : letter}
+                    </motion.span>
+                  ))}
                 </motion.div>
+              </div>
             </div>
+
+            <motion.div
+              className="flex justify-center flex-wrap"
+              variants={descriptionContainerVariants}
+              initial="hidden"
+              animate="visible"
+            >
+              {descriptionText.map((letter, i) => (
+                <motion.span
+                  key={i}
+                  custom={i}
+                  variants={descriptionLetterVariants}
+                  className={`${dancingScript.className} text-xl md:text-2xl text-[#c9c9c9]`}
+                  style={{
+                    transformStyle: "preserve-3d",
+                  }}
+                >
+                  {letter === " " ? "\u00A0" : letter}
+                </motion.span>
+              ))}
+            </motion.div>
+          </motion.div>
         </div>
+      </div>
     );
 }
