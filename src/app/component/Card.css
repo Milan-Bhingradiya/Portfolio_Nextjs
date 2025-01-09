@@ -1,11 +1,11 @@
 .card {
   border-radius: 30px;
-  background: #14161A;
-    transition: box-shadow 0.3s ease;
-      /* Adding a transition for smooth effect */
-      box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5),
-        -5px -5px 10px rgba(255, 255, 255, 0.1);
-  /* Adding a transition for smooth effect */
+  background: rgba(16, 16, 18, 0.8); /* Slightly transparent dark background */
+  backdrop-filter: blur(2px);
+  transition: all 0.3s ease;
+  box-shadow: 
+    10px 10px 20px rgba(0, 0, 0, 0.7),
+    -5px -5px 10px rgba(255, 255, 255, 0.03);
 }
 
 .card:hover {
