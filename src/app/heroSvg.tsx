@@ -141,7 +141,7 @@ const HeroSvg = () => {
         </motion.svg>
       </div>
       {/* notion */}
-      <div className="lg:blur-[2px] blur-[1.5px]">
+      <div className="hidden md:block lg:blur-[2px] blur-[1.5px]">
         <motion.svg
           style={{
             x: mousePosition.x * 0.02, // Parallax effect based on mouse position
@@ -226,7 +226,7 @@ const HeroSvg = () => {
         </motion.svg>
       </div>
       {/* tailwind */}
-      <div className="blur-[2px]">
+      <div className="hidden md:block  blur-[2px]">
         <motion.svg
           style={{
             x: mousePosition.x * 0.02, // Parallax effect based on mouse position
@@ -510,7 +510,7 @@ const HeroSvg = () => {
         </motion.svg>
       </div>
       {/* git  */}
-      <div className="lg:blur-[2px] blur-[1px]">
+      <div className=" hidden md:block lg:blur-[2px] blur-[1px]">
         <motion.svg
           style={{
             x: mousePosition.x * 0.02, // Parallax effect based on mouse position

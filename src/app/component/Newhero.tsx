@@ -84,7 +84,7 @@ export default function Newhero() {
     };
 
     return (
-      <div className="relative h-[92vh] md:h-[90vh] overflow-hidden ">
+      <div className="relative h-[94vh] md:h-[90vh] overflow-hidden ">
         <div className="p-48 mx-100 pt-45 ">
           <HeroSvg/>
           <motion.div className="max-w-7xl mx-auto px-4 flex flex-col gap-6 items-center justify-center">

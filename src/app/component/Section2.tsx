@@ -132,7 +132,7 @@ export default function Section2() {
   }, [isVisible]);
 
   return (
-    <div className="h-[90vh] md:h-[120vh] ">
+    <div className="h-[88vh] md:h-[120vh] ">
       {" "}
       <div className="mt-28 md:mt-48"></div>
       <div ref={sectionRef}>
