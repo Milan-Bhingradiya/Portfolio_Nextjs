@@ -29,10 +29,10 @@ export default function Home() {
 
       <div className={`bg-newprimary   h-full`} id="homepagediv">
         <Navbar></Navbar>
-        <div className="flex flex-col items-center justify-center h-full w-full">
+        <div className="flex flex-col items-center justify-center h-full w-full overflow-hidden">
           {/* <OldHero></OldHero> */}
 
-          {/* <Newhero></Newhero> */}
+          <Newhero></Newhero>
           {/* <OldHero></OldHero> */}
 
           <Section2></Section2>

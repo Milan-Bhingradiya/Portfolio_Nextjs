@@ -8,7 +8,9 @@ const playfair = Playfair_Display({ subsets: ['latin'] });
 const dancingScript = Dancing_Script({ subsets: ['latin'] });
 
 export default function Newhero() {
-    const nameText = "Milan Bhingradiya".split("");
+    // Split the name into first and last name for mobile responsiveness
+    const firstName = "Milan".split("");
+    const lastName = "Bhingradiya".split("");
     const descriptionText = "FullStack Developer, Bringing Ideas to Life through Code and Design.".split("");
 
     // Simple animation for name
@@ -82,8 +84,8 @@ export default function Newhero() {
     };
 
     return (
-      <div className="relative border-2 border-green-500">
-        <div className="p-48 mx-100 pt-45 border-2 border-red-500">
+      <div className="relative  ">
+        <div className="p-48 mx-100 pt-45 ">
           <HeroSvg/>
           <motion.div className="max-w-7xl mx-auto px-4 flex flex-col gap-6 items-center justify-center">
             <div className="flex flex-col items-center justify-center">
@@ -98,33 +100,70 @@ export default function Newhero() {
 
               <div className="overflow-hidden py-2">
                 <motion.div
-                  className="flex justify-center"
+                  className="flex justify-center flex-col md:flex-row"
                   variants={nameContainerVariants}
                   initial="hidden"
                   animate="visible"
                 >
-                  {nameText.map((letter, i) => (
-                    <motion.span
-                      key={i}
-                      variants={nameLetterVariants}
-                      className={`${dancingScript.className} text-6xl md:text-7xl xl:text-8xl font-bold 
-                                            relative cursor-pointer
-                                            bg-gradient-to-r from-blue-400 via-blue-600 to-blue-800 
-                                            bg-clip-text text-transparent`}
-                      whileHover={{
-                        scale: 1.2,
-                        rotate: [0, -10, 10, 0],
-                        transition: {
-                          rotate: {
-                            repeat: Infinity,
-                            duration: 1,
+                  {/* First Name */}
+                  <div className="flex justify-center">
+                    {firstName.map((letter, i) => (
+                      <motion.span
+                        key={i}
+                        variants={nameLetterVariants}
+                        className={`${dancingScript.className} text-6xl md:text-7xl xl:text-8xl font-bold 
+                                              relative cursor-pointer
+                                              bg-gradient-to-r from-blue-400 via-blue-600 to-blue-800 
+                                              bg-clip-text text-transparent`}
+                        whileHover={{
+                          scale: 1.2,
+                          rotate: [0, -10, 10, 0],
+                          transition: {
+                            rotate: {
+                              repeat: Infinity,
+                              duration: 1,
+                            },
                           },
-                        },
-                      }}
-                    >
-                      {letter === " " ? "\u00A0" : letter}
-                    </motion.span>
-                  ))}
+                        }}
+                      >
+                        {letter}
+                      </motion.span>
+                    ))}
+                  </div>
+                  
+                  {/* Add space between first and last name on desktop */}
+                  <motion.span 
+                    variants={nameLetterVariants}
+                    className="hidden md:inline text-6xl md:text-7xl xl:text-8xl"
+                  >
+                    &nbsp;
+                  </motion.span>
+
+                  {/* Last Name */}
+                  <div className="flex justify-center">
+                    {lastName.map((letter, i) => (
+                      <motion.span
+                        key={i}
+                        variants={nameLetterVariants}
+                        className={`${dancingScript.className} text-6xl md:text-7xl xl:text-8xl font-bold 
+                                              relative cursor-pointer
+                                              bg-gradient-to-r from-blue-400 via-blue-600 to-blue-800 
+                                              bg-clip-text text-transparent`}
+                        whileHover={{
+                          scale: 1.2,
+                          rotate: [0, -10, 10, 0],
+                          transition: {
+                            rotate: {
+                              repeat: Infinity,
+                              duration: 1,
+                            },
+                          },
+                        }}
+                      >
+                        {letter}
+                      </motion.span>
+                    ))}
+                  </div>
                 </motion.div>
               </div>
             </div>
