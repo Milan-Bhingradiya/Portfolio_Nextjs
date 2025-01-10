@@ -76,7 +76,7 @@ export default function ProjectPage({ params }: any) {
         }
       });
     }
-  }, []);
+  }, [params.id]);
 
   const nextImage = () => {
     setSlideDirection("right");
@@ -95,7 +95,7 @@ export default function ProjectPage({ params }: any) {
   useEffect(() => {
     const timer = setInterval(nextImage, 5000); // Auto-slide every 5 seconds
     return () => clearInterval(timer);
-  }, []);
+  }, [nextImage]);
 
   return (
     <div className="w-screen bg-slate-900 text-white">

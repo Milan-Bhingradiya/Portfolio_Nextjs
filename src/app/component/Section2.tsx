@@ -48,7 +48,7 @@ export default function Section2() {
         delay: delay,
       });
       return controls.stop;
-    }, [text, isVisible]);
+    }, [text,count,delay]);
 
     return <motion.p>{displayText}</motion.p>;
   };
@@ -131,8 +131,11 @@ export default function Section2() {
     }
   }, [isVisible]);
 
+
+
+  
   return (
-    <div className="h-[88vh] md:h-[120vh] ">
+    <div className="h-[74vh] md:h-[120vh] w-screen  ">
       {" "}
       <div className="mt-28 md:mt-48"></div>
       <div ref={sectionRef}>
@@ -193,7 +196,7 @@ export default function Section2() {
             {/* Image below */}
             {/* <div className="bg-primary2 float-left md:mr-10 bordr  flex flex-row justify-center items-center  h-[180px] w-[170px] m-2 xs:h-[320px] xs:w-[300px] sm:h-[360px] sm:w-[300px] md:h-[380px] md:w-[320px] lg:h-[390px]   lg:w-[350px]  xl:h-[400px]  xl:w-[400px] "> */}
             <Image
-              className="  object-contain h- p-0 float-left xs:p-2 sm:p-3 md:p-4 lg:p-5 xl:p-6    h-[180px] w-[170px] m-2 xs:h-[320px] xs:w-[300px] sm:h-[360px] sm:w-[300px] md:h-[380px] md:w-[320px] lg:h-[390px]   lg:w-[350px]  xl:h-[400px]  xl:w-[400px]"
+              className="left-0  object-contain h- p-0 float-left xs:p-2 sm:p-3 md:p-4 lg:p-5 xl:p-6    h-[180px] w-[170px] m-2 xs:h-[320px] xs:w-[300px] sm:h-[360px] sm:w-[300px] md:h-[380px] md:w-[320px] lg:h-[390px]   lg:w-[350px]  xl:h-[400px]  xl:w-[400px]"
               src={meImage}
               alt="myimage"
             ></Image>

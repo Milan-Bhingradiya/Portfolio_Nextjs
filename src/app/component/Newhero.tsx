@@ -84,9 +84,9 @@ export default function Newhero() {
     };
 
     return (
-      <div className="relative h-[88vh] md:h-[90vh] overflow-hidden ">
-        <div className="p-48 mx-100 pt-45 ">
-          <HeroSvg/>
+      <div className="relative h-[75vh] md:h-[90vh] overflow-hidden ">
+        <div className="p-48 mx-1 md:mx-10 pt-45 ">
+          <HeroSvg />
           <motion.div className="max-w-7xl mx-auto px-4 flex flex-col gap-6 items-center justify-center">
             <div className="flex flex-col items-center justify-center">
               <motion.span
@@ -130,9 +130,9 @@ export default function Newhero() {
                       </motion.span>
                     ))}
                   </div>
-                  
+
                   {/* Add space between first and last name on desktop */}
-                  <motion.span 
+                  <motion.span
                     variants={nameLetterVariants}
                     className="hidden md:inline text-6xl md:text-7xl xl:text-8xl"
                   >

@@ -59,10 +59,11 @@ export const getAllDocuments = async (collectionName: string) => {
     querySnapshot.forEach((doc) => {
       documents.push({ id: doc.id, ...doc.data() });
     });
-    console.log(documents);
     return documents;
   } catch (error) {
     console.error("Error fetching documents:", error);
+    // Handle the error appropriately
+    return []; // or return a default value
   }
 };
 

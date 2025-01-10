@@ -18,29 +18,27 @@ import React, { useEffect } from "react";
 
 export default function RootLayout({
   children,
-}:{
+}: {
   children: React.ReactNode;
 }) {
-
-
   const { isSidebarWide, menuOnClick, updateisSidebarWide } = useApnaStore();
   useEffect(() => {
     const handleClick = (event: MouseEvent) => {
       const target = event.target as HTMLElement;
 
       // Check if the clicked element is a descendant of #page_hold_div or SideBar
-      if (!target.closest('#page_hold_div') && !target.closest('SideBar')) {
+      if (!target.closest("#page_hold_div") && !target.closest("SideBar")) {
         menuOnClick(!isSidebarWide);
         updateisSidebarWide(); // Call menuOnclick function if clicked outside the specified elements
       }
     };
 
-    document.addEventListener('click', handleClick);
+    document.addEventListener("click", handleClick);
 
     return () => {
-      document.removeEventListener('click', handleClick);
+      document.removeEventListener("click", handleClick);
     };
-  }, [menuOnClick, isSidebarWide]);//idk why i put this here this time idk 
+  }, [menuOnClick, isSidebarWide,updateisSidebarWide]); //idk why i put this here this time idk
   return (
     <html lang="en">
       <body className="bg-newprimary overflow-x-hidden">
