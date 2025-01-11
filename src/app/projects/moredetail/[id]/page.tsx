@@ -67,8 +67,8 @@ export default function ProjectPage({ params }: any) {
             video: res.video || [],
             technology: res.technology || [],
             features: res.features || [],
-            challenges: res.challenges || "",
-            outcome: res.outcome || "",
+            challenges: res.challenges || [],
+            outcome: res.outcome || [],
           };
           setprojectData(projectData);
         }
