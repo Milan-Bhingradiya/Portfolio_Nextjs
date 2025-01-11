@@ -1,10 +1,8 @@
-
 "use client";
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { getDocumentById } from "@/services/fireStoreOperations";
-
 
 // const projectData = {
 //   title: "E-commerce Platform",
@@ -54,8 +52,8 @@ export default function ProjectPage({ params }: any) {
     video: [],
     technology: [],
     features: [],
-    challenges: "",
-    outcome: "",
+    challenges: [],
+    outcome: [],
   });
 
   useEffect(() => {
@@ -192,23 +190,43 @@ export default function ProjectPage({ params }: any) {
 
           <section>
             <h2 className="text-2xl font-semibold mb-4">Key Features</h2>
-            <ul className="list-disc list-inside text-slate-300 space-y-2">
-              {projectData.features.map((feature, index) => (
-                <li key={index}>{feature}</li>
-              ))}
-            </ul>
+            <div className="text-slate-300 space-y-2">
+              {projectData.features.map((feature: string, index: number) => {
+                if (feature[0] == ".") {
+                  return <li key={index}>{feature.slice(1)}</li>;
+                }
+                return <p key={index}>{feature}</p>;
+              })}
+            </div>
           </section>
 
           <section>
             <h2 className="text-2xl font-semibold mb-4">
               Challenges & Solutions
             </h2>
-            <p className="text-slate-300">{projectData.challenges}</p>
+
+            <div className="text-slate-300 space-y-2">
+              {projectData.challenges.map(
+                (challenges: string, index: number) => {
+                  if (challenges[0] == ".") {
+                    return <li key={index}>{challenges.slice(1)}</li>;
+                  }
+                  return <p key={index}>{challenges}</p>;
+                }
+              )}
+            </div>
           </section>
 
           <section>
             <h2 className="text-2xl font-semibold mb-4">Outcome</h2>
-            <p className="text-slate-300">{projectData.outcome}</p>
+            <div className="text-slate-300 space-y-2">
+              {projectData.outcome.map((outcome: string, index: number) => {
+                if (outcome[0] == ".") {
+                  return <li key={index}>{outcome.slice(1)}</li>;
+                }
+                return <p key={index}>{outcome}</p>;
+              })}
+            </div>
           </section>
 
           {/* Video section */}
