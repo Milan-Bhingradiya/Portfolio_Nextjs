@@ -116,7 +116,7 @@ export default function Section2() {
               if (iteration > index) {
                 return "WHO AM I ?".split("")[index];
               }
-              return letters[Math.floor(Math.random() * 26)];
+              return letters[ Math.abs(Math.floor(Math.random() * 26))];
             })
             .join("")
         );
@@ -160,7 +160,7 @@ export default function Section2() {
                         .split("")
                         .map((letter, i) => {
                           if (i === index) {
-                            return letters[Math.floor(Math.random() * 26)];
+                            return letters[ Math.abs(Math.floor(Math.random() * 26))];
                           }
                           return letter;
                         })

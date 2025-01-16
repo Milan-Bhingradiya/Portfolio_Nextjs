@@ -35,11 +35,11 @@ export default function Home() {
           <Newhero></Newhero>
           {/* <OldHero></OldHero> */}
 
-          <Section2></Section2>
+          {/* <Section2></Section2> */}
 
-          <Section3></Section3>
+          {/* <Section3></Section3> */}
 
-          <Footer></Footer>
+          {/* <Footer></Footer> */}
         </div>
       </div>
     </>
