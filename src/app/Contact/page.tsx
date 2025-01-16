@@ -17,7 +17,12 @@ export default function Page() {
   };
 
   const [Payload, setPayload] = useState(initialPayload);
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
   const [apicalling, setapicalling] = useState(false);
 
   const handleChange = (
