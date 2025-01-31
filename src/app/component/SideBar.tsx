@@ -87,6 +87,24 @@ export default function SideBar() {
         {/* ------------------------------------------------------------------------------------------------------------- */}
 
         <Link
+          href={"/blog"}
+          onClick={() => {
+            handleOnClick("Contact");
+          }}
+        >
+          <div
+            className={`m-4 ${
+              currentPage == "Contact"
+                ? "font-bold text-3xl  transition-all duration-300"
+                : "hover:font-semibold"
+            }`}
+          >
+            Blogs
+          </div>
+        </Link>
+        {/* ------------------------------------------------------------------------------------------------------------- */}
+
+        <Link
           href={"/Contact"}
           onClick={() => {
             handleOnClick("Contact");
