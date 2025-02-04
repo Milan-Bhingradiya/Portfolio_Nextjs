@@ -100,11 +100,11 @@ export default function Newhero() {
   };
 
   return (
-    <div className="relative h-[75vh] md:h-[90vh] overflow-hidden">
-      <div className="p-48 mx-1 md:mx-10 pt-45">
+    <div className="relative h-[100vh] overflow-hidden">
+      <div className="p-48 mx-1 md:mx-10 my-auto  ">
         <HeroSvg />
-        <motion.div className="max-w-7xl mx-auto px-4 flex flex-col  items-center justify-center">
-          <div className="flex flex-col items-center justify-center">
+        <motion.div className="max-w-7xl mx-auto px-4 flex flex-col items-center justify-center">
+          <div className="flex flex-col items-center justify-center ">
             <motion.span
               initial={{ opacity: 0, scale: 0.5 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -182,6 +182,50 @@ export default function Newhero() {
                   ))}
                 </div>
               </motion.div>
+
+              <motion.div
+                className="flex justify-center flex-col md:flex-row py-4 md:py-0"
+                variants={descriptionContainerVariants}
+                initial="hidden"
+                animate="visible"
+              >
+                {/* lastine */}
+                <div className="flex justify-center flex-wrap">
+                  {descriptionText.map((letter, i) =>
+                    letter === "@" ? (
+                      <motion.span key={i}>&quot; &quot;</motion.span>
+                    ) : (
+                      <motion.span
+                        key={i}
+                        variants={nameLetterVariants}
+                        // className={`${dancingScript.className} text-2xl md:text-3xl xl:text-4xl
+                        //   relative cursor-pointer
+                        //   bg-clip-text text-white`}
+                        className={`${dancingScript.className} tracking-wide text-2xl md:text-3xl text-center font-medium text-[#e4e4e4] italic`}
+                        whileHover={{
+                          scale: 1.2,
+                          rotate: [0, -10, 10, 0],
+                          transition: {
+                            rotate: {
+                              repeat: Infinity,
+                              duration: 1,
+                            },
+                          },
+                        }}
+                      >
+                        {letter}
+                      </motion.span>
+                    )
+                  )}
+                </div>
+
+                <motion.span
+                  variants={nameLetterVariants}
+                  className="hidden md:inline text-6xl md:text-7xl xl:text-8xl"
+                >
+                  &nbsp;
+                </motion.span>
+              </motion.div>
             </div>
           </div>
 
@@ -206,51 +250,6 @@ export default function Newhero() {
             ))}
           </motion.div> */}
 
-          <div className="overflow-hidden ">
-            <motion.div
-              className="flex justify-center flex-col md:flex-row"
-              variants={descriptionContainerVariants}
-              initial="hidden"
-              animate="visible"
-            >
-              {/* First Name */}
-              <div className="flex justify-center">
-                {descriptionText.map((letter, i) =>
-                  letter === "@" ? (
-                    <motion.span key={i}>&quot; &quot;</motion.span>
-                  ) : (
-                    <motion.span
-                      key={i}
-                      variants={nameLetterVariants}
-                      // className={`${dancingScript.className} text-2xl md:text-3xl xl:text-4xl
-                      //   relative cursor-pointer
-                      //   bg-clip-text text-white`}
-                      className={`${dancingScript.className} tracking-wide text-2xl md:text-3xl text-center font-medium text-[#e4e4e4] italic`}
-                      whileHover={{
-                        scale: 1.2,
-                        rotate: [0, -10, 10, 0],
-                        transition: {
-                          rotate: {
-                            repeat: Infinity,
-                            duration: 1,
-                          },
-                        },
-                      }}
-                    >
-                      {letter}
-                    </motion.span>
-                  )
-                )}
-              </div>
-
-              <motion.span
-                variants={nameLetterVariants}
-                className="hidden md:inline text-6xl md:text-7xl xl:text-8xl"
-              >
-                &nbsp;
-              </motion.span>
-            </motion.div>
-          </div>
         </motion.div>
       </div>
     </div>
