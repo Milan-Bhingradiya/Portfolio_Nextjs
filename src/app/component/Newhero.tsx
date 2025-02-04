@@ -1,6 +1,7 @@
-import HeroSvg from "../heroSvg";
+import HeroSvg from "./hero/heroSvg";
 import { motion } from "framer-motion";
 import { Playfair_Display, Dancing_Script } from "next/font/google";
+import Spotlight from "./hero/SpotLight";
 
 // Initialize fonts
 const playfair = Playfair_Display({ subsets: ["latin"] });
@@ -27,11 +28,11 @@ export default function Newhero() {
   const firstName = "Milan".split("");
   const lastName = "Bhingradiya".split("");
   const descriptionText =
-    "FullStack Developer, Bringing Ideas to Life through Code and Design.";
+    "Full@@Stack@Developer,@Bringing@Ideas@to@Life@through@Code@and@Design.".split("");
 
   // Seed for deterministic randomization
   const seed = 1234;
-  const randomTransforms = generateRandomTransforms(descriptionText, seed);
+  // const randomTransforms = generateRandomTransforms(descriptionText, seed);
 
   // Framer Motion Variants
   const nameContainerVariants = {
@@ -102,7 +103,7 @@ export default function Newhero() {
     <div className="relative h-[75vh] md:h-[90vh] overflow-hidden">
       <div className="p-48 mx-1 md:mx-10 pt-45">
         <HeroSvg />
-        <motion.div className="max-w-7xl mx-auto px-4 flex flex-col gap-6 items-center justify-center">
+        <motion.div className="max-w-7xl mx-auto px-4 flex flex-col  items-center justify-center">
           <div className="flex flex-col items-center justify-center">
             <motion.span
               initial={{ opacity: 0, scale: 0.5 }}
@@ -113,7 +114,7 @@ export default function Newhero() {
               Hii, I&apos;m
             </motion.span>
 
-            <div className="overflow-hidden py-2">
+            <div className="overflow-hidden pt-2 ">
               <motion.div
                 className="flex justify-center flex-col md:flex-row"
                 variants={nameContainerVariants}
@@ -126,8 +127,8 @@ export default function Newhero() {
                     <motion.span
                       key={i}
                       variants={nameLetterVariants}
-                      className={`${dancingScript.className} text-6xl md:text-7xl xl:text-8xl font-bold 
-                        relative cursor-pointer bg-gradient-to-r from-blue-400 via-blue-600 to-blue-800 
+                      className={`${dancingScript.className} text-6xl md:text-6xl xl:text-7xl font-bold
+                        relative cursor-pointer bg-gradient-to-r from-blue-400 via-blue-600 to-blue-800
                         bg-clip-text text-transparent`}
                       whileHover={{
                         scale: 1.2,
@@ -158,9 +159,13 @@ export default function Newhero() {
                     <motion.span
                       key={i}
                       variants={nameLetterVariants}
-                      className={`${dancingScript.className} text-6xl md:text-7xl xl:text-8xl font-bold 
-                        relative cursor-pointer bg-gradient-to-r from-blue-400 via-blue-600 to-blue-800 
+                      className={`${dancingScript.className} text-5xl md:text-6xl xl:text-7xl font-bold
+                        relative cursor-pointer bg-gradient-to-r from-blue-400 via-blue-600 to-blue-800
                         bg-clip-text text-transparent`}
+                      // goldan
+                      // className={`${dancingScript.className} text-6xl md:text-7xl xl:text-8xl font-bold
+                      //   relative cursor-pointer bg-gradient-to-r from-yellow-300 via-yellow-500 to-yellow-700
+                      //   bg-clip-text text-transparent`}
                       whileHover={{
                         scale: 1.2,
                         rotate: [0, -10, 10, 0],
@@ -180,7 +185,7 @@ export default function Newhero() {
             </div>
           </div>
 
-          <motion.div
+          {/* <motion.div
             className="flex justify-center flex-wrap"
             variants={descriptionContainerVariants}
             initial="hidden"
@@ -199,7 +204,53 @@ export default function Newhero() {
                 {letter === " " ? "\u00A0" : letter}
               </motion.span>
             ))}
-          </motion.div>
+          </motion.div> */}
+
+          <div className="overflow-hidden ">
+            <motion.div
+              className="flex justify-center flex-col md:flex-row"
+              variants={descriptionContainerVariants}
+              initial="hidden"
+              animate="visible"
+            >
+              {/* First Name */}
+              <div className="flex justify-center">
+                {descriptionText.map((letter, i) =>
+                  letter === "@" ? (
+                    <motion.span key={i}>&quot; &quot;</motion.span>
+                  ) : (
+                    <motion.span
+                      key={i}
+                      variants={nameLetterVariants}
+                      // className={`${dancingScript.className} text-2xl md:text-3xl xl:text-4xl
+                      //   relative cursor-pointer
+                      //   bg-clip-text text-white`}
+                      className={`${dancingScript.className} tracking-wide text-2xl md:text-3xl text-center font-medium text-[#e4e4e4] italic`}
+                      whileHover={{
+                        scale: 1.2,
+                        rotate: [0, -10, 10, 0],
+                        transition: {
+                          rotate: {
+                            repeat: Infinity,
+                            duration: 1,
+                          },
+                        },
+                      }}
+                    >
+                      {letter}
+                    </motion.span>
+                  )
+                )}
+              </div>
+
+              <motion.span
+                variants={nameLetterVariants}
+                className="hidden md:inline text-6xl md:text-7xl xl:text-8xl"
+              >
+                &nbsp;
+              </motion.span>
+            </motion.div>
+          </div>
         </motion.div>
       </div>
     </div>
