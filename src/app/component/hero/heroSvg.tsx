@@ -39,7 +39,7 @@ const HeroSvg = () => {
     },
   };
   return (
-    <div className="relative w-[70%] mx-auto">
+    <div className="relative w-[100%] md:w-[70%] mx-auto ">
       {/*typescript */}
       <div>
         <motion.svg
