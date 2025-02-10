@@ -3,6 +3,7 @@
 import { useState, useRef } from "react";
 // @ts-ignore
 import ColorThief from "colorthief";
+import Image from "next/image";
 
 const Home = () => {
   const [imageSrc, setImageSrc] = useState<string | null>(null);
@@ -52,7 +53,7 @@ const Home = () => {
 
       {imageSrc && (
         <div className="mt-5">
-          <img
+          <Image
             ref={imageRef}
             src={imageSrc}
             onLoad={extractColors}
