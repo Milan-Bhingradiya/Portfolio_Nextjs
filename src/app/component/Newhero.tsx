@@ -28,7 +28,7 @@ export default function Newhero() {
   const firstName = "Milan".split("");
   const lastName = "Bhingradiya".split("");
   const descriptionText =
-    "Full@@Stack@Developer,@Bringing@Ideas@to@Life@through@Code@and@Design.".split("");
+    "Full@Stack@Developer,@Bringing@Ideas@to@Life@through@Code@and@Design.".split("");
 
   // Seed for deterministic randomization
   const seed = 1234;
