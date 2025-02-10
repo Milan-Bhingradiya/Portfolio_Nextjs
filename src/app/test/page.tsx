@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useCallback } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 // @ts-ignore
 import ColorThief from "colorthief";
 
@@ -22,14 +22,26 @@ const Home = () => {
 
   // Extract colors using ColorThief
   const extractColors = useCallback(() => {
-    if (imageRef.current) {
+    if (!imageRef.current) return;
+
+    const img = imageRef.current;
+    if (!img.complete) {
+      img.onload = () => {
+        const colorThief = new ColorThief();
+        setPalette(colorThief.getPalette(img, 5));
+      };
+    } else {
       const colorThief = new ColorThief();
-      if (imageRef.current.complete) {
-        const colors = colorThief.getPalette(imageRef.current, 5);
-        setPalette(colors);
-      }
+      setPalette(colorThief.getPalette(img, 5));
     }
   }, []);
+
+  // Run color extraction after image updates
+  useEffect(() => {
+    if (imageSrc) {
+      extractColors();
+    }
+  }, [imageSrc, extractColors]);
 
   // Copy color to clipboard
   const copyToClipboard = (color: number[]) => {
@@ -61,7 +73,6 @@ const Home = () => {
             ref={imageRef}
             src={imageSrc}
             crossOrigin="anonymous"
-            onLoad={extractColors}
             className="w-64 h-auto rounded-lg shadow-lg border-2 border-newprimary2"
             alt="Uploaded"
           />
