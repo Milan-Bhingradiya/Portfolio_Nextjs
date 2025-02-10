@@ -1,9 +1,8 @@
-"use client"
+"use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useCallback } from "react";
 // @ts-ignore
 import ColorThief from "colorthief";
-import Image from "next/image";
 
 const Home = () => {
   const [imageSrc, setImageSrc] = useState<string | null>(null);
@@ -11,6 +10,7 @@ const Home = () => {
   const [copiedColor, setCopiedColor] = useState<string | null>(null);
   const imageRef = useRef<HTMLImageElement | null>(null);
 
+  // Handle image upload
   const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (file) {
@@ -20,7 +20,8 @@ const Home = () => {
     }
   };
 
-  const extractColors = () => {
+  // Extract colors using ColorThief
+  const extractColors = useCallback(() => {
     if (imageRef.current) {
       const colorThief = new ColorThief();
       if (imageRef.current.complete) {
@@ -28,8 +29,9 @@ const Home = () => {
         setPalette(colors);
       }
     }
-  };
+  }, []);
 
+  // Copy color to clipboard
   const copyToClipboard = (color: number[]) => {
     const colorCode = `rgb(${color.join(", ")})`;
     navigator.clipboard.writeText(colorCode);
@@ -44,6 +46,7 @@ const Home = () => {
         Image Color Palette Extractor
       </h1>
 
+      {/* Image Upload Input */}
       <input
         type="file"
         accept="image/*"
@@ -53,14 +56,17 @@ const Home = () => {
 
       {imageSrc && (
         <div className="mt-5">
-          <Image
+          {/* Display Image */}
+          <img
             ref={imageRef}
             src={imageSrc}
+            crossOrigin="anonymous"
             onLoad={extractColors}
             className="w-64 h-auto rounded-lg shadow-lg border-2 border-newprimary2"
             alt="Uploaded"
           />
 
+          {/* Display Extracted Colors */}
           <div className="flex flex-wrap justify-center mt-6 gap-2">
             {palette.map((color, index) => {
               const colorCode = `rgb(${color.join(", ")})`;
@@ -79,6 +85,7 @@ const Home = () => {
             })}
           </div>
 
+          {/* Copied Notification */}
           {copiedColor && (
             <div className="mt-4 text-lg font-semibold text-newprimary2 animate-pulse">
               Copied: {copiedColor}
