@@ -13,6 +13,8 @@ interface propsProject {
   thumbnail: string[];
   photos: string[];
   technology: string[];
+  live_link: string;
+  github_link: string;
 }
 interface ProjectCardProps {
   project: propsProject;
@@ -38,7 +40,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 
         <div className="  h-[300px] overflow-hidden">
           <Image
-            src={project.thumbnail  && project.thumbnail[0]}
+            src={project.thumbnail && project.thumbnail[0]}
             alt="loading.."
             width={300}
             height={100}
@@ -99,17 +101,30 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             <div className="line-clamp-6 m-4">{project.card_desc}</div>
           </div>
 
-          <div className="flex flex-row justify-center">
+          <div className="flex flex-row justify-center gap-2">
             <Link
               href={"/projects/moredetail/" + project.id}
-              
               className="relative inline-flex items-center justify-center px-8 py-[10px] overflow-hidden font-mono font-medium tracking-tighter text-white bg-gray-800 rounded-lg group"
             >
               <span className="absolute w-0 h-0 transition-all duration-500 ease-out bg-green-500 rounded-full group-hover:w-56 group-hover:h-56"></span>
               <span className="absolute inset-0 w-full h-full -mt-1 rounded-lg opacity-30 bg-gradient-to-b from-transparent via-transparent to-gray-700"></span>
               <span className="relative">More :) </span>
             </Link>
+            <Link
+              href={
+                project.live_link
+                  ? project.live_link
+                  : "https://configcat.com/blog/assets/test-production/2-stand-back.jpg"
+              }
+              className="relative inline-flex items-center justify-center px-8 py-[10px] overflow-hidden font-mono font-medium tracking-tighter text-white bg-gray-800 rounded-lg group"
+            >
+              <span className="absolute w-0 h-0 transition-all duration-500 ease-out bg-blue-500 rounded-full group-hover:w-56 group-hover:h-56"></span>
+              <span className="absolute inset-0 w-full h-full -mt-1 rounded-lg opacity-30 bg-gradient-to-b from-transparent via-transparent to-gray-700"></span>
+              <span className="relative">Live link </span>
+            </Link>
+           
           </div>
+        
         </div>
 
         {/* second page  end */}
