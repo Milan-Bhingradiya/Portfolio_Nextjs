@@ -24,7 +24,7 @@
   );
   animation: rotating 4s linear infinite;
   z-index: 5;
-  border-radius: 20px;
+  border-radius: 15px;
 }
 
 .box:hover::after {
@@ -48,7 +48,7 @@
 }
 
 .content {
-  border-radius: 20px;
+  border-radius: 15px;
   /* position: absolute; */
   height: 298px;
   width: 298px;

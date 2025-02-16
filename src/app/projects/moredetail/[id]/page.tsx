@@ -123,7 +123,7 @@ export default function ProjectPage({ params }: any) {
                 src={src}
                 alt={`Project image ${index + 1}`}
                 fill
-                className="rounded-lg shadow-lg object-cover"
+                className="rounded-lg shadow-lg object-contain"
               />
             </div>
           ))}

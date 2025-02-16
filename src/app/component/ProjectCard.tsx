@@ -38,7 +38,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 
         <div className="  h-[300px] overflow-hidden">
           <Image
-            src={project.thumbnail  &&project.thumbnail[0]}
+            src={project.thumbnail  && project.thumbnail[0]}
             alt="loading.."
             width={300}
             height={100}
