@@ -17,6 +17,8 @@ interface propsProject {
   thumbnail: string[];
   photos: string[];
   technology: string[];
+  live_link: string;
+  github_link: string;
 }
 
 export default function Page() {
@@ -64,7 +66,7 @@ export default function Page() {
 
           <section className="relative">
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-purple-900/20 to-transparent blur-3xl -z-10" />
-            <div className="flex flex-row flex-wrap justify-center sm:justify-start gap-6 px-6">
+            <div className="flex flex-row flex-wrap justify-center  gap-2 px-6">
               {projects && projects.length != 0 &&
                 projects.map((project, index) => (
                   <motion.div
