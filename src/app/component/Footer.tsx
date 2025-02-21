@@ -132,7 +132,7 @@ export default function Footer() {
         transition={{ duration: 0.6, delay: 0.6 }}
         className="text-center text-white/70 mt-4 sm:mt-8 text-xs sm:text-sm px-4"
       >
-        <p>© {new Date().getFullYear()} Your Name. All rights reserved.</p>
+        <p>© {new Date().getFullYear()} Milan All rights Not reserved You can copy.</p>
       </motion.div>
     </footer>
   );
