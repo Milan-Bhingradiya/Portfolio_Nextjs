@@ -101,9 +101,9 @@ export default function Newhero() {
 
   return (
     <div className="relative h-[100vh] overflow-hidden">
-      <div className=" py-48 md:p-48 mx-1 md:mx-10 my-auto  ">
+      <div className=" py-48 md:p-40 mx-1 md:mx-8 my-auto  ">
         <HeroSvg />
-        <motion.div className="max-w-7xl mx-auto px-4 flex flex-col items-center justify-center">
+        <motion.div className=" max-w-7xl mx-auto px-4 flex flex-col items-center justify-center">
           <div className="flex flex-col items-center justify-center ">
             <motion.span
               initial={{ opacity: 0, scale: 0.5 }}
