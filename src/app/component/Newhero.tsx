@@ -193,7 +193,7 @@ export default function Newhero() {
                 <div className="flex justify-center flex-wrap">
                   {descriptionText.map((letter, i) =>
                     letter === "@" ? (
-                      <motion.span key={i}>&quot; &quot;</motion.span>
+                      <motion.span key={i}>&nbsp; &nbsp;</motion.span>
                     ) : (
                       <motion.span
                         key={i}
@@ -249,7 +249,6 @@ export default function Newhero() {
               </motion.span>
             ))}
           </motion.div> */}
-
         </motion.div>
       </div>
     </div>
