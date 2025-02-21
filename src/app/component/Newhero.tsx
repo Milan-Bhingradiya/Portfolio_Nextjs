@@ -193,14 +193,11 @@ export default function Newhero() {
                 <div className="flex justify-center flex-wrap">
                   {descriptionText.map((letter, i) =>
                     letter === "@" ? (
-                      <motion.span key={i}>&nbsp; &nbsp;</motion.span>
+                      <motion.span key={i}>&nbsp;&nbsp;</motion.span>
                     ) : (
                       <motion.span
                         key={i}
                         variants={nameLetterVariants}
-                        // className={`${dancingScript.className} text-2xl md:text-3xl xl:text-4xl
-                        //   relative cursor-pointer
-                        //   bg-clip-text text-white`}
                         className={`${dancingScript.className} tracking-wide text-2xl md:text-3xl text-center font-medium text-[#e4e4e4] italic`}
                         whileHover={{
                           scale: 1.2,

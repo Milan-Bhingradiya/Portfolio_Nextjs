@@ -510,7 +510,7 @@ const HeroSvg = () => {
         </motion.svg>
       </div>
       {/* git  */}
-      <div className="lg:blur-[2px] blur-[1px]">
+      <div className="lg:blur-[3px] blur-[3px]">
         <motion.svg
           style={{
             x: mousePosition.x * 0.02, // Parallax effect based on mouse position
