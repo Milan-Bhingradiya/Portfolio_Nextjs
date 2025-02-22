@@ -1,9 +1,20 @@
-import Image from "next/image";
-import meImage from "../../../public/me.png";
+"use client";
+// import meImage from "../../../public/me.png";
 import { motion, useMotionValue, useTransform, animate } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
-export default function Section2() {
+import {
+  GraduationCap,
+  Heart,
+  Code,
+  Sparkles,
+  ChevronDown,
+} from "lucide-react";
+import Image from "next/image";
+import meImage from "../../../public/me.png";
+import milan from "../../../public/milan.jpg";
+
+export default function WhoAmI1() {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
 
@@ -25,33 +36,8 @@ export default function Section2() {
     return () => observer.disconnect();
   }, []);
 
-  const paragraphs = [
-    "I am a passionate and dynamic AI/ML Engineering student currently in the fourth semester at LDCE College of Engineering",
-    "I love exploring every detail, no matter how small. My passion is digging into how things work – uncovering the hidden details that often get overlooked.",
-    "I started this learning journey eager to know more,driven by a strong curiosity about the endless possibilities of AI and ML. During my studies, I've gotten better at the latest technologies, dived into tricky algorithms, and untangled the secrets of data science.",
-  ];
 
-  const TypewriterEffect = ({ text, delay = 0 }: any) => {
-    const count = useMotionValue(0);
-    const rounded = useTransform(count, (latest) => Math.round(latest));
-    const displayText = useTransform(rounded, (latest) =>
-      text.slice(0, latest)
-    );
 
-    useEffect(() => {
-      if (!isVisible) return;
-
-      const controls = animate(count, text.length, {
-        type: "tween",
-        duration: 2,
-        ease: "easeInOut",
-        delay: delay,
-      });
-      return controls.stop;
-    }, [text,count,delay]);
-
-    return <motion.p>{displayText}</motion.p>;
-  };
 
   const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   const [titleText, setTitleText] = useState("WHO AM I ?");
@@ -116,7 +102,7 @@ export default function Section2() {
               if (iteration > index) {
                 return "WHO AM I ?".split("")[index];
               }
-              return letters[ Math.abs(Math.floor(Math.random() * 26))];
+              return letters[Math.abs(Math.floor(Math.random() * 26))];
             })
             .join("")
         );
@@ -125,111 +111,133 @@ export default function Section2() {
         if (iteration > "WHO AM I ?".length + 1) {
           clearInterval(interval);
         }
-      }, 50);
+      }, 80);
 
       return () => clearInterval(interval);
     }
   }, [isVisible]);
 
-
-
-  
   return (
-    <div className="h-[74vh] md:h-[120vh] w-screen  ">
-      {" "}
-      <div className="mt-28 md:mt-48"></div>
-      <div ref={sectionRef}>
-        <motion.div
-          className="sm:mt-20 mb-5 flex flex-row justify-center"
-          variants={titleVariants}
-          initial="initial"
-          animate={isVisible ? "animate" : "initial"}
-        >
-          <motion.div className="flex space-x-2 text-4xl font-extrabold sm:text-xl md:2xl lg:text-3xl xl:text-4xl bg-gradient-to-r from-blue-400 via-purple-500 to-indigo-600 bg-clip-text text-transparent">
-            {titleText.split("").map((char, index) => (
-              <motion.span
-                key={index}
-                variants={letterVariants}
-                whileHover="hover"
-                className="cursor-pointer inline-block"
-                onMouseEnter={() => {
-                  let iteration = 0;
-                  const interval = setInterval(() => {
-                    setTitleText((prev) =>
-                      prev
-                        .split("")
-                        .map((letter, i) => {
-                          if (i === index) {
-                            return letters[ Math.abs(Math.floor(Math.random() * 26))];
-                          }
-                          return letter;
-                        })
-                        .join("")
-                    );
-                    iteration += 1;
-                    if (iteration > 5) {
-                      clearInterval(interval);
-                      setTitleText((prev) =>
-                        prev
-                          .split("")
-                          .map((letter, i) => {
-                            if (i === index) {
-                              return "WHO AM I ?".split("")[i];
-                            }
-                            return letter;
-                          })
-                          .join("")
-                      );
-                    }
-                  }, 50);
-                }}
-              >
-                {char === " " ? "\u00A0" : char}
-              </motion.span>
-            ))}
-          </motion.div>
-        </motion.div>
-
-        <div className="flex flex-row justify-center items-center m-2 ">
-          {/* //flex justify-center */}
-          <div className=" w-[100%] sm:w-[70%] ">
-            {/* Image below */}
-            {/* <div className="bg-primary2 float-left md:mr-10 bordr  flex flex-row justify-center items-center  h-[180px] w-[170px] m-2 xs:h-[320px] xs:w-[300px] sm:h-[360px] sm:w-[300px] md:h-[380px] md:w-[320px] lg:h-[390px]   lg:w-[350px]  xl:h-[400px]  xl:w-[400px] "> */}
+    <div className="p-12 md:p-24">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="grid md:grid-cols-[320px,1fr] gap-20 items-center"
+      >
+        <div className="relative group">
+          <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full blur opacity-50 group-hover:opacity-100 transition duration-1000"></div>
+          <div className="relative aspect-square rounded-full overflow-hidden flex justify-center items-center bg-gray-900 p-2">
             <Image
-              className="left-0  object-contain h- p-0 float-left xs:p-2 sm:p-3 md:p-4 lg:p-5 xl:p-6    h-[180px] w-[170px] m-2 xs:h-[320px] xs:w-[300px] sm:h-[360px] sm:w-[300px] md:h-[380px] md:w-[320px] lg:h-[390px]   lg:w-[350px]  xl:h-[400px]  xl:w-[400px]"
-              src={meImage}
-              alt="myimage"
-            ></Image>
-            {/* </div> */}
-
-            <div className="">
-              {/* discription */}
-              <motion.div
-                className="text-white p-1 xs:p-2 sm:p-5 text-justify font-sans sm:font-mono"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.5 }}
-              >
-                {paragraphs.map((text, index) => (
-                  <div key={index} className="mb-4">
-                    <TypewriterEffect text={text} delay={index * 2.5} />
-                  </div>
-                ))}
-                {/*               
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 1, delay: 8 }}
-              >
-                Email : milanbhingradiya00@gmail.com
-                <br />
-                Phone : 9016064322
-              </motion.div> */}
-              </motion.div>
-            </div>
+              src={milan}
+              alt="Profile"
+              className="object-cover w-full h-full rounded-full"
+            />
           </div>
         </div>
-      </div>
+
+        {/* /////////////////////////////////////////////////////////////////////////////// */}
+
+        <div className="space-y-8">
+          <div ref={sectionRef}>
+            <motion.div
+              className="mt-5 mb-5 flex flex-row justify-left items-center space-x-2"
+              variants={titleVariants}
+              initial="initial"
+              animate={isVisible ? "animate" : "initial"}
+            >
+              <motion.div className=" flex space-x-1 text-4xl font-extrabold sm:text-xl md:2xl lg:text-3xl xl:text-4xl bg-gradient-to-r from-blue-400 via-purple-500 to-indigo-600 bg-clip-text text-transparent">
+                {titleText.split("").map((char, index) => (
+                  <motion.span
+                    key={index}
+                    variants={letterVariants}
+                    whileHover="hover"
+                    className="cursor-pointer inline-block"
+                    onMouseEnter={() => {
+                      let iteration = 0;
+                      const interval = setInterval(() => {
+                        setTitleText((prev) =>
+                          prev
+                            .split("")
+                            .map((letter, i) => {
+                              if (i === index) {
+                                return letters[
+                                  Math.abs(Math.floor(Math.random() * 26))
+                                ];
+                              }
+                              return letter;
+                            })
+                            .join("")
+                        );
+                        iteration += 1;
+                        if (iteration > 5) {
+                          clearInterval(interval);
+                          setTitleText((prev) =>
+                            prev
+                              .split("")
+                              .map((letter, i) => {
+                                if (i === index) {
+                                  return "WHO AM I ?".split("")[i];
+                                }
+                                return letter;
+                              })
+                              .join("")
+                          );
+                        }
+                      }, 50);
+                    }}
+                  >
+                    {char === " " ? "\u00A0" : char}
+                  </motion.span>
+                ))}
+              </motion.div>
+            </motion.div>
+
+            <motion.div
+              className="h-1 w-24 bg-gradient-to-r from-blue-600 to-indigo-600 mt-3"
+              initial={{ width: 0 }}
+              animate={{ width: 96 }}
+              transition={{ delay: 0.4 }}
+            />
+          </div>
+
+          <motion.div
+            className="space-y-5 text-gray-300 text-lg"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.6 }}
+          >
+            <div className="flex items-center gap-4">
+              <GraduationCap className="w-6 h-6 text-blue-400" />
+              <p>AI/ML Engineering Student at LDCE</p>
+            </div>
+            <div className="flex items-center gap-4">
+              <Code className="w-6 h-6 text-blue-400" />
+              <p>Full Stack Developer with 1 years of experience</p>
+            </div>
+            <div className="flex items-center gap-4">
+              <Heart className="w-6 h-6 text-blue-400" />
+              <p>Passionate about Machine Learning and Deep Learning</p>
+            </div>
+            <div className="flex items-center gap-4">
+              <Sparkles className="w-6 h-6 text-blue-400" />
+              <p>Always learning and exploring new technologies</p>
+            </div>
+          </motion.div>
+          {/* 
+           <motion.div
+             initial={{ opacity: 0 }}
+             animate={{ opacity: 1 }}
+             transition={{ delay: 0.8 }}
+             className="pt-6"
+           >
+             <button className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white rounded-md text-lg font-medium transition-all duration-200 transform hover:scale-105">
+               Learn More
+               <ChevronDown className="ml-3 h-5 w-5" />
+             </button>
+           </motion.div> */}
+        </div>
+      </motion.div>
     </div>
   );
 }
